@@ -31,8 +31,7 @@ namespace PrintMood.ApiControllers
         /// <returns>Hello {name}!</returns>
         [HttpGet]
         public IActionResult Hello (string name)
-        {
-            throw new Exception("test API");
+        {            
             return Ok($"Hello {name}!");
         }
     }
