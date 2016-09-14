@@ -1,0 +1,115 @@
+﻿
+@using System.Security.Policy
+@using Microsoft.AspNetCore.Diagnostics
+@using Microsoft.AspNetCore.Http.Features
+@using Microsoft.AspNetCore.Mvc.Razor
+@using Microsoft.AspNetCore.Mvc.Rendering
+@using Microsoft.AspNetCore.Mvc.ViewFeatures
+
+@{
+    ViewData["Title"] = "Error";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        
+    <title>@ViewData["Title"]</title>    
+
+    <environment names="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css"/>
+
+        <!--[if lt IE 9]>
+            <link rel="stylesheet" href="@Url.Content("~/lib/ie_8.css")"/>
+
+            <script src="@Url.Content("~/lib/respond/dest/respond.src.js")"></script>
+            <script src="@Url.Content("~/lib/html5shiv/dist/html5shiv.js")"></script>
+        <![endif]-->
+
+        <link rel="stylesheet" href="~/lib/font-awesome/css/font-awesome.css"/>        
+        <link rel="stylesheet" href="~/css/site.css"/>
+    </environment>
+    <environment names="Staging,Production">
+        <link rel="stylesheet" href="//ajax.aspnetcdn.com/ajax/bootstrap/3.3.6/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute"/>
+
+        <!--[if lt IE 9]>
+            <link rel="stylesheet" href="@Url.Content("~/lib/ie_8.min.css")"/>
+
+            <script src="//ajax.aspnetcdn.com/ajax/respond/1.4.2/respond.min.js"
+                    asp-fallback-src="@Url.Content("~/lib/respond/dest/respond.min.js")"
+                    asp-fallback-test="window.respond">
+            
+            </script>
+
+            <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"
+                    asp-fallback-src="@Url.Content("~/lib/html5shiv/dist/html5shiv.min.js")"
+                    asp-fallback-test="window.html5">
+            
+            </script>
+        <![endif]-->
+
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css"
+              asp-fallback-href="~/lib/font-awesome/css/font-awesome.min.css"
+              asp-fallback-test-class="fa" asp-fallback-test-property="display" asp-fallback-test-value="inline-block"/>        
+
+        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true"/>
+    </environment>
+</head>
+
+<body style="background-color:#EB5055">
+
+    <!-- Full Page Image Header Area -->
+    <div id="top" class="header">
+        <div class="col-xs-12 col-md-6 col-md-offset-3 col-sm-12">
+            <div class="submitted" style="text-align: left">
+                <h3>An error occurred while processing your request.</h3>
+                To find out the cause you may contact the administartor and report the correlation number: @ViewContext.HttpContext.TraceIdentifier
+                    <div>
+                        <a class="btn btn-link" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                            <b>Details »</b>
+                        </a>
+                        <div class="collapse" id="collapseExample">
+                            <div class="card card-block">
+                                @(ViewContext.HttpContext.Features.Get<IExceptionHandlerFeature>()?.Error.Message)
+                            </div>
+                        </div>
+                        <br />
+                    </div>
+                    <div class="text-right">
+                        <h1>
+                            <a href="@Url.Content("~/")" class="btn btn-default btn-lg" type="button">Go Home</a>
+                        </h1>
+                    </div>
+</div>
+        </div>
+    </div>
+    <!-- /Full Page Image Header Area -->
+
+<environment names="Development">
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>            
+</environment>
+
+<environment names="Staging,Production">
+    <script src="//ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.3.min.js"
+            asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+            asp-fallback-test="window.jQuery">
+        
+    </script>
+
+    <script src="//ajax.aspnetcdn.com/ajax/bootstrap/3.3.6/bootstrap.min.js"
+            asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+            asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal">
+
+        
+    </script>        
+</environment>
+
+</body>
+</html>

@@ -1,0 +1,13 @@
+git clone https://github.com/alexf2/PrintMood.git
+git remote add origin https://github.com/alexf2/PrintMood.git
+
+cd existing-project
+git init
+
+git config  user.name "Alexey Fedorov"
+git config  user.email Aleksey-Fedorov@mailfrom.ru
+
+git add --all
+git commit -m "Initial Commit"
+git remote add origin https://github.com/alexf2/PrintMood.git
+git push origin master

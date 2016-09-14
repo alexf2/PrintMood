@@ -1,0 +1,175 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Printing on singlets, t-shirts and svitshots">
+    <meta name="author" content="Vladimir Trofimov">
+    <meta name="keywords" content="printing on singlets, printing on t-shorts, printing on svitshots, print order website, creative, Print Mood">
+
+    <meta property="og:title" content="@ViewData["Title"] - (-: Print Mood :-)" />
+    <meta property="og:url" content="@Url.Content("~/")" />
+    <meta property="og:image" content="@Url.Content("~/images/favicon.png")" />
+
+    <title>@ViewData["Title"] - (-: Print Mood :-)</title>
+    <link rel="shortcut icon" href="~/images/favicon.png">
+
+
+    <environment names="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+
+        <!--[if lt IE 9]>
+            <link rel="stylesheet" href="@Url.Content("~/lib/ie_8.css")"/>
+
+            <script src="@Url.Content("~/lib/respond/dest/respond.src.js")"></script>
+            <script src="@Url.Content("~/lib/html5shiv/dist/html5shiv.js")"></script>
+        <![endif]-->        
+
+        <link rel="stylesheet" href="~/lib/font-awesome/css/font-awesome.css" />
+        <link rel="stylesheet" href="~/css/pace.css"/>
+        <link rel="stylesheet" href="~/lib/flexslider/flexslider.css" />
+        <link rel="stylesheet" href="~/css/site.css" />
+    </environment>
+    <environment names="Staging,Production">
+        <link rel="stylesheet" href="//ajax.aspnetcdn.com/ajax/bootstrap/3.3.6/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+
+        <!--[if lt IE 9]>
+            <link rel="stylesheet" href="@Url.Content("~/lib/ie_8.min.css")"/>
+
+            <script src="//ajax.aspnetcdn.com/ajax/respond/1.4.2/respond.min.js"
+                asp-fallback-src="@Url.Content("~/lib/respond/dest/respond.min.js")"
+                asp-fallback-test="window.respond">
+            </script>
+
+            <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"
+                    asp-fallback-src="@Url.Content("~/lib/html5shiv/dist/html5shiv.min.js")"
+                    asp-fallback-test="window.html5">
+            </script>
+        <![endif]-->
+
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css"
+              asp-fallback-href="~/lib/font-awesome/css/font-awesome.min.css"
+              asp-fallback-test-class="fa" asp-fallback-test-property="display" asp-fallback-test-value="inline-block"/>
+
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/flexslider/2.6.0/flexslider.min.css"
+              asp-fallback-href="~/lib/flexslider/flexslider.css"
+              asp-fallback-test-class="flexslider" asp-fallback-test-property="margin" asp-fallback-test-value="0" />
+
+        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+    </environment>
+</head>
+
+<body data-spy="scroll" data-target="#ha-header">
+
+    <!-- Fixed navbar -->
+    <div class="navbar navbar-default navbar-fixed-top ha-header-small" id="ha-header">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+                <a class="navbar-brand logo" href="~/">Project name</a>
+            </div>
+            <div class="navbar-collapse collapse ">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#top">home</a></li>
+                    <li><a href="#services ">Services</a></li>
+                    <li><a href="#portfolio ">portfolio</a></li>
+                    <li><a href="#about">about</a></li>
+                    <li><a href="#projects">projects</a></li>
+                    <li><a href="#contact">contact</a></li>
+                </ul>
+            </div>
+            <!--/.nav-collapse -->
+        </div>
+    </div>
+    <!-- End Fixed navbar -->
+
+    @RenderBody()
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-md-9 col-sm-12">
+                    <p>Copyright &copy; 2016 Vladimir Trofimov. All rights reserved.</p>
+                </div>
+                <div class="col-xs-12 col-md-3 col-sm-12">
+                    <ul class=" footer_social clearfix">
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                        <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                        <li class="go_top"><a href="#top"><i class="fa fa-chevron-circle-up"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- /Footer -->
+
+
+    <environment names="Development">
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="~/lib/pace/pace.js"></script>
+        <script src="~/lib/jquery.nicescroll/dist/jquery.nicescroll.min.js"></script>
+        <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+
+        <script src="//maps.google.com/maps/api/js?sensor=true"></script><!--google map contact page-->
+        <script src="~/lib/gmaps/gmaps.js"></script>
+
+        <script src="~/lib/flexslider/jquery.flexslider.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+    </environment>
+
+    <environment names="Staging,Production">
+        <script src="//ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.3.min.js"
+                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                asp-fallback-test="window.jQuery">
+        </script>
+
+        <script src="//ajax.aspnetcdn.com/ajax/bootstrap/3.3.6/bootstrap.min.js"
+                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal">
+
+        </script>
+
+        <script src="//cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js"
+                asp-fallback-src="~/lib/pace/pace.min.js"
+                asp-fallback-test="window.Pace">
+
+        </script>
+
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.6.8/jquery.nicescroll.min.js"
+                asp-fallback-src="~/lib/jquery.nicescroll/dist/jquery.nicescroll.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.niceScroll">
+        </script>
+
+        <script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.min.js"
+                asp-fallback-src="~/lib/jquery-validation/dist/jquery.validate.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.validate">
+
+        </script>
+
+        <script src="//maps.google.com/maps/api/js?sensor=true"></script><!--google map contact page-->
+
+        <script src="//cdnjs.cloudflare.com/ajax/libs/flexslider/2.6.0/jquery.flexslider.min.js"
+                asp-fallback-src="~/lib/flexslider/jquery.flexslider.js"
+                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.flexslider">
+        </script>
+
+        <script src="//cdnjs.cloudflare.com/ajax/libs/gmaps.js/0.4.24/gmaps.min.js"
+                asp-fallback-src="~/lib/gmaps/gmaps.min.js"
+                asp-fallback-test="GMaps">
+
+        </script>        
+
+        <script src="~/js/site.min.js" asp-append-version="true"></script>
+    </environment>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

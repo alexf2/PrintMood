@@ -1,0 +1,16 @@
+{
+  "name": "asp.net",
+  "private": true,
+  "dependencies": {
+    "jquery": "2.2.3",
+    "bootstrap": "3.3.6",
+    "jquery-validation": "1.15.0",
+    "font-awesome": "4.6.1",
+    "gmaps": "0.4.24",
+    "jquery.nicescroll": "3.6.8",
+    "respond": "1.4.2",
+    "html5shiv": "3.7.3",
+    "pace": "1.0.2",
+    "flexslider": "2.6.0"
+  }
+}
