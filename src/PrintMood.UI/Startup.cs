@@ -98,8 +98,8 @@ namespace PrintMood
             
 
             app.Map("/api", bld =>
-            {           
-                     
+            {
+                bld.UseMiddleware(typeof (ErrorHandlingMiddleware));
                 bld.UseMvc(routes =>
                 {
                     routes.MapRoute(
