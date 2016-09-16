@@ -2,6 +2,7 @@
 using System.Buffers;
 using Microsoft.AspNetCore.Mvc.Formatters;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Serialization;
 
 namespace WebApiHelpers
@@ -10,16 +11,17 @@ namespace WebApiHelpers
     {
         public JsonDefaultFormatter() : base(JsonSerializerSettingsProvider.CreateSerializerSettings(), ArrayPool<Char>.Shared)
         {
-            SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
-            SerializerSettings.DateFormatHandling = DateFormatHandling.IsoDateFormat;
-            SerializerSettings.DateTimeZoneHandling = DateTimeZoneHandling.Utc;
-            SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
-            SerializerSettings.DefaultValueHandling = DefaultValueHandling.Include;
-        }
+            SerializerSettings.Formatting = Formatting.None;
 
-        protected override bool CanWriteType(Type type)
-        {
-            return base.CanWriteType(type);
-        }
+            SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
+            SerializerSettings.DefaultValueHandling = DefaultValueHandling.Include;
+            SerializerSettings.DateFormatHandling = DateFormatHandling.IsoDateFormat;
+            SerializerSettings.DateTimeZoneHandling = DateTimeZoneHandling.Utc;                        
+            SerializerSettings.TypeNameHandling = TypeNameHandling.Auto;
+            SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+
+            SerializerSettings.Converters.Add(new StringEnumConverter { CamelCaseText = false });
+            SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+        }        
     }
 }
