@@ -28,7 +28,34 @@
 })();
 
 
-$(document).ready(function() {	                        
+(function() {
+    $(document).ready(function() {
+        fixFlexsliderHeight();
+    });
+
+    $(window).load(function() {
+        fixFlexsliderHeight();
+    });
+
+    $(window).resize(function() {
+        fixFlexsliderHeight();
+    });
+
+    function fixFlexsliderHeight() {
+        // Set fixed height based on the tallest slide
+        $('.flexslider').each(function(){
+            var sliderHeight = 99999;
+            $(this).find('.slides > li').each(function(){
+                sliderHeight = Math.min(sliderHeight, $(this).height());
+            });
+
+            $(this).find('ul.slides').css({'height' : sliderHeight});
+            $(this).parent().css({'height' : sliderHeight});            
+        });
+    }
+})();
+
+(function() {	                        
 
 		/*******Nice Scroll******/	  
         $("html").niceScroll({            
@@ -41,7 +68,9 @@ $(document).ready(function() {
             scrollspeed:60,
             mousescrollstep:8*3,            
             autohidemode:false,
-            background:"#F1F1F1"            
+            horizrailenabled: false,
+            background:"#F1F1F1",
+            zindex: 9999
         }).resize();  // The document page (body)
         
 
@@ -113,5 +142,5 @@ $(document).ready(function() {
         overviewMapControl: false
       });*/
 
-});
+})();
 
