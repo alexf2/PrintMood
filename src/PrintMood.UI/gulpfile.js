@@ -11,7 +11,9 @@ var gulp = require("gulp"),
     concat = require("gulp-concat"),
     cssmin = require("gulp-cssmin"),
     uglify = require("gulp-uglify"),
-    rename = require("gulp-rename");
+    rename = require("gulp-rename"),
+    sourcemaps = require('gulp-sourcemaps'),
+    plumber = require('gulp-plumber');
 
 var paths = {
     webroot: "./wwwroot/"
@@ -37,13 +39,17 @@ gulp.task("clean", ["clean:js", "clean:css"]);
 
 gulp.task("min:js", function () {
     return gulp.src([paths.js, "!" + paths.minJs], { base: "." })
+      .pipe(plumber())
+      .pipe(sourcemaps.init())
       .pipe(concat(paths.concatJsDest))
       .pipe(uglify())
+      .pipe(sourcemaps.write('.'))
       .pipe(gulp.dest("."));
 });
 
 gulp.task("min:css", function () {
     return gulp.src([paths.css, "!" + paths.minCss])
+      .pipe(plumber())
       .pipe(concat(paths.concatCssDest))
       .pipe(cssmin())
       .pipe(gulp.dest("."));
