@@ -41,7 +41,7 @@
         fixFlexsliderHeight();
     });
 
-    function fixFlexsliderHeight() {
+    function fixFlexsliderHeight() {        
         // Set fixed height based on the tallest slide
         $('.flexslider').each(function(){
             var sliderHeight = 99999;
@@ -49,9 +49,9 @@
                 sliderHeight = Math.min(sliderHeight, $(this).height());
             });
 
-            $(this).find('ul.slides').css({'height' : sliderHeight});
-            $(this).parent().css({'height' : sliderHeight});            
-        });
+            $(this).find('ul.slides').css({'height' : sliderHeight + "px"});
+            $(this).parent().css({'height' : sliderHeight + "px"});            
+        });        
     }
 })();
 
@@ -70,21 +70,28 @@
             autohidemode:false,
             horizrailenabled: false,
             background:"#F1F1F1",
-            zindex: 9999
-        }).resize();  // The document page (body)
-        
+            zindex: 9999            
+        }).resize();  // The document page (body)    
 
         <!--flexs lider--> 	
 		 $('.flexslider').flexslider({
 		     animation: "fade",
 		     controlNav: false,
 		     smoothHeight: false,
-             startAt: 2,
+             startAt: 1,
 		     start: function(slider){
 		         $('body').removeClass('loading');
-		     }
+		     },
+		     prevText: $('#texts.prev').val(),
+		     nextText: $('#texts.next').val()
 		 });
 
+        $('.flexslider .flex-prev, .flexslider .flex-next').each(function(idx, el) {
+            var $el = $(el);
+            $el.attr('title', $el.text());
+            $el.text('');
+        });
+    
 
 		/***Hover Effect with mask**/		
 		$('span.mask').hover(

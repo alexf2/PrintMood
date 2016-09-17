@@ -59,6 +59,43 @@ ul { list-style: none; }
     }
 }
 
+.flex-caption-shift {
+    top: 45%;
+}
+.flex-caption-shift2 {
+    top: 57%;
+}
+
+.flipped {
+    -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: FlipH;
+    -ms-filter: "FlipH";
+}
+
+.story-para {
+    text-indent: 2em;
+    text-align: justify;
+}
+
+/* Direction Nav */
+.flex-direction-nav a { background: url("../images/bg_direction_nav.png") no-repeat scroll 0 0 #303441;
+  cursor: pointer;display: block;height: 47px;margin: -20px 0 0;opacity: 0;position: absolute;text-indent: -9999px; top: 50%;
+  width: 44px;}
+ .flex-direction-nav .flex-next { background-position: 100% 0;  }
+
+.flexslider:hover .flex-next { opacity: 0.8;  }
+.flexslider:hover .flex-prev { opacity: 0.8;  }
+
+.flex-direction-nav .disabled { opacity: .3!important; filter:alpha(opacity=30); cursor: default; }
+
+.flex-direction-nav a.flex-next:before, flex-direction-nav a.flex-prev:before {
+  content: '';
+}
+/* Control Nav */
+
 /* ==========================================================
                   TitleSection 
 ============================================================= */
@@ -73,7 +110,7 @@ h1 small { font-size: 90% }
             Header Area
 ============================================================= */
 .header { background-color: #EB5055; overflow: hidden }
-.logo { background: url("../images/passion.png") no-repeat scroll 0 0 transparent; height: 45px; text-indent: -9999px; width: 112px; }
+.logo { background: url("../images/print_mood.png") no-repeat scroll 0 0 transparent; height: 45px; text-indent: -9999px; width: 170px; }
 
 /**bootstrap over style for menu**/
 .navbar-default{ background-color: #303441; border-bottom: 2px solid #4A4F5E; top: 0; left: 0; position: fixed; right: 0; z-index: 1030; margin-bottom: 20px; min-height: 50px; -webkit-transform: translateY(0%); -moz-transform: translateY(0%); transform: translateY(0%); -webkit-transition: all 0.5s; -moz-transition: all 0.5s; transition: all 0.5s; }
@@ -102,19 +139,26 @@ h1 small { font-size: 90% }
 .ha-header-large { padding: 25px 0; opacity:0.9;}
 .ha-header-small { padding: 6px 0 0; opacity:0.7; }
 .ha-header-small .navbar-nav > li > a { padding-bottom: 10px; padding-top: 10px; }
-.ha-header-small .logo { background: url("../images/passion_small.png") no-repeat scroll 0 0 transparent; -webkit-transition: all 0.5s; -moz-transition: all 0.5s; transition: all 0.5s; }
+.ha-header-small .logo { background: url("../images/print_mood_small.png") no-repeat scroll 0 0 transparent; -webkit-transition: all 0.5s; -moz-transition: all 0.5s; transition: all 0.5s; }
 
 
 
 /* ==========================================================
                 services
 ============================================================= */
-.services, .about { background: #F2F2F2; border-bottom: 5px solid #FCFCFC; color: #666D89; padding: 50px 0; }
+.services, .order { background: #F2F2F2; border-bottom: 5px solid #FCFCFC; color: #666D89; padding: 50px 0; }
 .ser_wrap_3 { border-bottom: 1px solid #EDEDED; margin: 0; overflow: hidden; padding: 20px 0; }
 .ser_wrap_3 ul { overflow: hidden; padding: 0; }
 .ser_wrap_3 ul li { margin-bottom: 0; overflow: hidden; }
 .ser_wrap_3 .icon_ser { border: 1px solid #666D89; -moz-border-radius: 045px 45px 45px 45px; -webkit-border-radius: 45px 45px 45px 45px; border-radius: 45px 45px 45px 45px; color: #666D89; float: left; font-size: 1.9em; height: 50px; line-height: 50px; text-align: center; vertical-align: middle; width: 50px; }
+@media (min-width: 992px) {
+    .ser_wrap_3 .icon_ser-right {
+        float: right;
+    }
+    .ser_wrap_3 .wrap-right {float: right; margin: 0 10px 10px 0; text-align: right;}    
+}
 .ser_wrap_3 .wrap { float: left; margin: 0 0 10px 10px; width: 79%; }
+
 .ser_wrap_3.option2 ul li:hover .icon_ser { font-size:3.6em; }
 .ser_wrap_3 .wrap h3 { margin: 5px 0 }
 .ser_wrap_3.option3 ul li { text-align: center; }
@@ -153,11 +197,11 @@ h1 small { font-size: 90% }
 #filter_header li a.selected { color: #AFB6D1; font-weight: bold; text-shadow: none; background-color:#4A4E5C }
 
 /* ==========================================================
-                About
+                Order
 ============================================================= */
-#about .page-head:before, #services .page-head:before { background:  #666D89 }
-#about .page-head small, #services .page-head small { color: #A3A7B9 }
-#about .page-head, #services .page-head { border-bottom: 1px solid #A3A7B9 }
+#order .page-head:before, #services .page-head:before { background:  #666D89 }
+#order .page-head small, #services .page-head small { color: #A3A7B9 }
+#order .page-head, #services .page-head { border-bottom: 1px solid #A3A7B9 }
 .hexagon { margin: 10px auto 5px; overflow: hidden; width: 193px }
 .portfolio-title { position: relative; float: left; width: 100%; height: 20px; overflow: hidden; margin-top: 5px; }
 .portfolio-title h4 { position: relative; line-height: 20px; width: 100%; text-align: center; margin:0; }
@@ -167,26 +211,26 @@ h1 small { font-size: 90% }
 .hexagon a img.hovering { left: 5px; -webkit-filter: grayscale(0%); -moz-filter: grayscale(0%); -o-filter: grayscale(0%); -ms-filter: grayscale(0%); filter: grayscale(0%); }
 .hexagon a span.mask { width: 300px; height: 300px; position: absolute; top: -50px; left: -50px; z-index: 2; background: url("../images/hexagon_mask.png") no-repeat; -webkit-transition:-webkit-transform 300ms ease-out; -moz-transition:-moz-transform 300ms ease-out; -o-transition:-o-transform 300ms ease-out; transition:transform 300ms ease-out; -webkit-backface-visibility: hidden; -webkit-backface-visibility: hidden; }
 .hexagon a span.mask:hover { -webkit-transform:rotate(30deg); -moz-transform:rotate(30deg); -ms-transform:rotate(30deg); -o-transform:rotate(30deg); transform:rotate(30deg); }
-.about_wrap_one { margin-bottom: 45px; text-align: center; }
-.about_wrap_one p { margin-top:15px }
+.order_wrap_one { margin-bottom: 45px; text-align: center; }
+.order_wrap_one p { margin-top:15px }
 .holder { overflow:hidden }
 .holder > img { transition: all 0.5s ease-in-out; -webkit-transition: all 0.5s ease-in-out; -moz-transition: all 0.5s ease-in-out; -o-transition: all 0.5s ease-in-out; }
-.about_wrap { margin-top: 20px; }
-.about_wrap:hover img { -webkit-transform: scale(1.1) rotate(3deg); -moz-transform: scale(1.1) rotate(3deg); -o-transform: scale(1.1) rotate(3deg); -ms-transform: scale(1.1) rotate(3deg); }
-.about_data { overflow: hidden; padding: 15px; background-color:#EEEDED; }
-.about_data ul.title { margin:0 0 10px; padding: 0; }
+.order_wrap { margin-top: 20px; }
+.order_wrap:hover img { -webkit-transform: scale(1.1) rotate(3deg); -moz-transform: scale(1.1) rotate(3deg); -o-transform: scale(1.1) rotate(3deg); -ms-transform: scale(1.1) rotate(3deg); }
+.order_data { overflow: hidden; padding: 15px; background-color:#EEEDED; }
+.order_data ul.title { margin:0 0 10px; padding: 0; }
 div.arrow { background: url("../images/arrow.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0); height: 9px; margin: -8px 0 0 17px; position: relative; width: 12px; }
-.about_data h2, .about_data h3, .about_data p { margin: 0; }
-.about_data h2 { font-size: 16px; line-height: 20px; margin-bottom: 3px; text-transform: uppercase; }
-.about_data h3 { font-size: 11px; line-height: 17px; text-transform: uppercase; }
-.about_data p { margin-top: 13px; }
-.about_social { border-top: 1px dotted #CCC; margin: 13px 0 0; overflow: hidden; padding: 13px 0 0 }
-.about_wrap_one .about_social { padding: 15px 13.5% 0 }
-.about_wrap_one .about_social li { display: inline-block; text-align: center; }
-.about_social li { border: 1px solid; border-radius: 50% 50% 50% 50%; display: inline; float: left; height: 30px; line-height: 30px; margin-right: 8px; text-align: center; width: 30px; }
-.about_social li:hover { background-color:#666D89; border:none }
-.about_social li:hover a { color:#F2F2F2 }
-.about_social li a { font-size: 17px; padding: 0 5px; color:#666D89 }
+.order_data h2, .order_data h3, .order_data p { margin: 0; }
+.order_data h2 { font-size: 16px; line-height: 20px; margin-bottom: 3px; text-transform: uppercase; }
+.order_data h3 { font-size: 11px; line-height: 17px; text-transform: uppercase; }
+.order_data p { margin-top: 13px; }
+.order_social { border-top: 1px dotted #CCC; margin: 13px 0 0; overflow: hidden; padding: 13px 0 0 }
+.order_wrap_one .order_social { padding: 15px 13.5% 0 }
+.order_wrap_one .order_social li { display: inline-block; text-align: center; }
+.order_social li { border: 1px solid; border-radius: 50% 50% 50% 50%; display: inline; float: left; height: 30px; line-height: 30px; margin-right: 8px; text-align: center; width: 30px; }
+.order_social li:hover { background-color:#666D89; border:none }
+.order_social li:hover a { color:#F2F2F2 }
+.order_social li a { font-size: 17px; padding: 0 5px; color:#666D89 }
 
 /* ==========================================================
                 Projects
