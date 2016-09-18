@@ -1,4 +1,6 @@
-﻿@{
+﻿@model PrintMood.Models.ViewModel
+
+@{
     ViewData["Title"] = "Printing on singlets, t-shirts and svitshots";
 }
 
@@ -112,13 +114,12 @@
                         </h1>
                     </header>
                 </div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nibh erat, sagittis sit amet congue at, aliquam eu libero. Integer molestie, turpis vel ultrices facilisis, nisi mauris sollicitudin mauris. aliquam eu libero. Integer molestie, turpis vel ultrices facilisis, nisi mauris sollicitudin mauris.</p>
+                <div class="story-para">
+                    <p>We have worked very hard to build a solid reputation since 1985. Our loyal customers know they can count on us to get the job done right and on time. We never use deceptive sales tactics and we never subsitute second quality merchandise.</p>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="container">
-        <div class="row">Section2 portfolio</div>
-    </div>
+    </div>    
 </div>
 <!-- Portfolio -->
 <!-- Ordering -->
@@ -154,11 +155,77 @@
                         </h1>
                     </header>
                 </div>
+
+                <div class="row">
+                    <div class="col-xs-12 col-md-7 col-sm-12">
+                        <p>
+                            Feel free to contact us regarding bulk supplies, special designs and other questions.
+                        </p>
+                        <p>
+                            Please be patient while waiting for response. (24/7 Support!) <br>
+                            <strong> Phone General Inquiries: 1-234-567-8910-1234</strong>
+                        </p>
+
+                        <div class="contact_wrap">
+                            <h3>Contact Form</h3>
+                            <form method="post" asp-controller="Home" asp-action="SendMail" id="passion_form">
+
+                                <div class="form-group">
+                                    <span data-valmsg-for="Name" data-valmsg-replace="true"></span>
+                                    <div>
+                                        <i class="fa fa-asterisk required2" aria-hidden="true"></i>
+                                        <input asp-for="MailData.Name" name="Name" id="Name" size="50" class="form-control required" placeholder="Your Name*"/>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <span data-valmsg-for="Email" data-valmsg-replace="true"></span>
+                                    <div>
+                                        <i class="fa fa-asterisk required2" aria-hidden="true"></i>
+                                        <input asp-for="MailData.Email" size="50" name="Email" id="Email" class="form-control required email" placeholder="Enter Email*"/>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <input asp-for="MailData.SiteUrl" size="50" name="SiteUrl" id="SiteUrl" class="form-control" placeholder="Website"/>
+                                </div>
+
+                                <div class="form-group">
+                                    <span data-valmsg-for="Message" data-valmsg-replace="true"></span>
+                                    <div>
+                                        <i class="fa fa-asterisk required2" aria-hidden="true"></i>
+                                        <textarea asp-for="MailData.Message" class="form-control required" rows="6" name="Message" id="Message" placeholder="Your Message*"></textarea>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-default">Send Message</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12 col-md-5 col-sm-12">
+                        <div class="jumbotron">
+                            <h3>Address Info</h3>
+                            <address>
+                                <strong>Print Mood, L.L.C.</strong><br>
+                                82106 Bratislava, Pri trati, 25A<br>
+                                <abbr title="Phone">Tel:</abbr> (123) 456-7890;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <abbr title="Fax">Fax:</abbr> (123) 456-7890
+                            </address>
+                            <address>
+                                <strong>Email:&nbsp;</strong> <a href="mailto:#">info@printmood.com</a><br>
+                                <strong>Web Site:&nbsp;</strong> <a href="~/">www.printmood.com</a>
+                            </address>
+                        </div>
+                        <div class="google">
+                            <h3>Find the Address</h3>
+                            <div id="map"></div>
+                        </div>
+                    </div>
+
+                </div>
+
             </div>
         </div>
-    </div>
-    <div class="container">
-        <div class="row">Section5 Contact us</div>
-    </div>
+    </div>    
 </div>
 <!--Contact -->
