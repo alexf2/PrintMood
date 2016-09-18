@@ -172,14 +172,13 @@ h1 small { font-size: 90% }
     }
     .ser_wrap_3 .wrap-right {float: right; margin: 0 10px 10px 0; text-align: right;}    
 }
-/*.ser_wrap_3 .wrap { float: left; margin: 0 0 10px 10px; width: 79%; }*/
-.ser_wrap_3 .wrap { float: left; width: 79%; }
+.ser_wrap_3 .wrap { float: left; margin: 0 0 10px 10px; width: 79%; }
 
 .ser_wrap_3.option2 ul li:hover .icon_ser { font-size:3.6em; }
 .ser_wrap_3 .wrap h3 { margin: 5px 0 }
 .ser_wrap_3.option3 ul li { text-align: center; }
 .ser_wrap_3.option3 .icon_ser { border: 2px solid; display: block; float: none; font-size: 3em; height: 75px; line-height:75px; margin: 0 auto 20px; width:75px }
-.ser_wrap_3.option3 .wrap { float: none; width: 100%; }
+.ser_wrap_3.option3 .wrap { float: none; width: 100%; margin: 0 }
 .ser_wrap_3.option3 .wrap > p { text-align: justify; }
 
 
@@ -249,6 +248,8 @@ div.arrow { background: url("../images/arrow.png") no-repeat scroll 0 0 rgba(0, 
 .order_social li:hover { background-color:#666D89; border:none }
 .order_social li:hover a { color:#F2F2F2 }
 .order_social li a { font-size: 17px; padding: 0 5px; color:#666D89 }
+
+div#order {background: url("../images/shirts.png") no-repeat scroll center; background-size: 90%}
 
 /* ==========================================================
                 Projects
