@@ -113,12 +113,14 @@ namespace PrintMood
             app.UseRequestLocalization()
                 .UseStaticFiles()
                 .UseMvc(routes =>
-                {
+                {                    
                     routes.MapRoute(
                         name: "default",
                         template: "{controller=Home}/{action=Index}/{id?}");
                 });
-            
+
+            app.UseElmCapture();
+            app.UseElmPage();
 
             app.Map("/api", bld =>
             {

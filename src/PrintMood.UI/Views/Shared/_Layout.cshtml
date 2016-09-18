@@ -16,7 +16,6 @@
     <title>@ViewData["Title"] - (-: Print Mood :-)</title>
     <link rel="shortcut icon" href="~/images/favicon.png">
 
-
     <environment names="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
 
@@ -35,19 +34,21 @@
     <environment names="Staging,Production">
         <link rel="stylesheet" href="//ajax.aspnetcdn.com/ajax/bootstrap/3.3.6/css/bootstrap.min.css"
               asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
-              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute"/>
 
         <!--[if lt IE 9]>
             <link rel="stylesheet" href="@Url.Content("~/lib/ie_8.min.css")"/>
 
             <script src="//ajax.aspnetcdn.com/ajax/respond/1.4.2/respond.min.js"
-                asp-fallback-src="@Url.Content("~/lib/respond/dest/respond.min.js")"
-                asp-fallback-test="window.respond">
+                    asp-fallback-src="@Url.Content("~/lib/respond/dest/respond.min.js")"
+                    asp-fallback-test="window.respond">
+            
             </script>
 
             <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"
                     asp-fallback-src="@Url.Content("~/lib/html5shiv/dist/html5shiv.min.js")"
                     asp-fallback-test="window.html5">
+            
             </script>
         <![endif]-->
 
@@ -57,10 +58,12 @@
 
         <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/flexslider/2.6.0/flexslider.min.css"
               asp-fallback-href="~/lib/flexslider/flexslider.min.css"
-              asp-fallback-test-class="flexslider" asp-fallback-test-property="position" asp-fallback-test-value="relative" />
+              asp-fallback-test-class="flexslider" asp-fallback-test-property="position" asp-fallback-test-value="relative"/>
 
-        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true"/>
     </environment>
+
+    @RenderSection("css", false)
 </head>
 
 <body data-spy="scroll" data-target="#ha-header">
@@ -75,10 +78,10 @@
             <div class="navbar-collapse collapse ">
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="#top">home</a></li>
-                    <li><a href="#services ">who</a></li>
-                    <li><a href="#portfolio ">why</a></li>                    
-                    <li><a href="#order">ordering</a></li>
-                    <li><a href="#contact">contact</a></li>
+                    <li><a href="#services" title="Print Mood who">who</a></li>
+                    <li><a href="#portfolio" title="Why people choose us">why</a></li>                    
+                    <li><a href="#order" title="Choose a shirt type, upload your print and order now">ordering</a></li>
+                    <li><a href="#contact" title="Contact Us">contact</a></li>
                 </ul>
             </div>
             <!--/.nav-collapse -->
