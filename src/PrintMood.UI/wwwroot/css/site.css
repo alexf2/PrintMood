@@ -90,6 +90,29 @@ p.first:first-letter {
     font-weight: bold;    
 }
 
+body {counter-reset: point 0;}
+.page-section {
+    position: relative;
+}
+.page-section:before {
+    content: "0" counter(point);
+    counter-increment: point 1;
+    position: absolute;
+    top: 79px;
+    left: 30px;
+    width: 40px;
+    height: 24px;
+    text-align: right;
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    font: 18px/24px Arial,FreeSans,sans-serif;
+    color: #bcbcbc;    
+    border-left: 2px solid #bcbcbc;
+    letter-spacing: 0.9px;
+    z-index: 50;
+}
+
 /* Direction Nav */
 .flex-direction-nav a { background: url("../images/bg_direction_nav.png") no-repeat scroll 0 0 #303441;
   cursor: pointer;display: block;height: 47px;margin: -20px 0 0;opacity: 0;position: absolute;text-indent: -9999px; top: 50%;
