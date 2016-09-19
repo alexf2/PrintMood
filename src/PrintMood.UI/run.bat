@@ -1,4 +1,8 @@
-rem set ASPNETCORE_ENVIRONMENT = Development
-set ASPNETCORE_ENVIRONMENT = Production
+rem setx ASPNETCORE_ENVIRONMENT "Development"
+setx ASPNETCORE_ENVIRONMENT "Production"
+rem setx ASPNETCORE_ENVIRONMENT "Development" /M
 rem dotnet run
-dotnet run --configuration Debug
+rem dotnet run --configuration Debug
+dotnet run --configuration Release
+
+

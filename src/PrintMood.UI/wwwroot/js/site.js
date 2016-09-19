@@ -128,26 +128,28 @@
 
 
     /*contact    page    validator*/
-    //$("#passion_form").validate();	
+    //$("#passion_form").validate();	    
+})();
 
+function initGMap() {
     /*****google map*****/
+    
     var map;
     map = new GMaps({
-      el: '#map',
-      lat: 48.126408,
-      lng: 17.222549,      
-      zoomControl : true,
-      zoomControlOpt: {
-          style : 'SMALL',
-          position: 'TOP_LEFT'
-      },
-      panControl : true,
-      streetViewControl : true,
-      mapTypeControl: true,
-      overviewMapControl: true,
-      fullscreenControl: true,
-      zoom: 15      
-    });
+        el: '#map',
+        lat: 48.126408, lng: 17.222549,        
+        zoomControl: true,
+        zoomControlOpt: {
+            style: 'SMALL',
+            position: 'TOP_LEFT'
+        },
+        panControl: true,
+        streetViewControl: true,
+        mapTypeControl: true,
+        overviewMapControl: true,
+        fullscreenControl: true,
+        zoom: 15
+    });    
 
     map.addMarker({
         lat: 48.126408,
@@ -155,6 +157,4 @@
         title: 'Print Mood',
         infoWindow: { content: '<div class="google-marker"><strong>Print Mood</strong><p>82106 Slovakia, Bratislava, Pri trati, 25A</p></div>' }
     });
-
-})();
-
+};
