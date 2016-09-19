@@ -87,7 +87,7 @@ namespace PrintMood
                 loggerFactory.AddConsole(Configuration.GetSection("Logging"))
                     .AddDebug(LogLevel.Debug);
 
-                app.UseDeveloperExceptionPage();
+                app.UseDeveloperExceptionPage();                                
             }
             else
             {
@@ -97,6 +97,7 @@ namespace PrintMood
                 app.UseElmCapture();
                 app.UseElmPage();
             }
+            app.UseStatusCodePagesWithReExecute("/Home/Error");
 
             var logger = loggerFactory.CreateLogger<Startup>();
 
@@ -113,10 +114,21 @@ namespace PrintMood
             app.UseRequestLocalization()
                 .UseStaticFiles()
                 .UseMvc(routes =>
-                {                    
+                {
                     routes.MapRoute(
                         name: "default",
-                        template: "{controller=Home}/{action=Index}/{id?}");
+                        template: "{controller=Home}/{action=Index}/{id?}",
+                        defaults: new {lang="en"},
+                        constraints: null,
+                        dataTokens: new {Namespace = typeof (PrintMood.Controllers.HomeController).Namespace}
+                        )
+                        .MapRoute(
+                            name: "withlang",
+                            template: "{lang=en}/{controller=Home}/{action=Index}/{id?}",
+                            defaults: null,
+                            constraints: new {lang = "en|ru|sk"},
+                            dataTokens: new {Namespace = typeof (PrintMood.Controllers.HomeController).Namespace}
+                        );
                 });
 
             app.UseElmCapture();
@@ -129,11 +141,17 @@ namespace PrintMood
                     {
                         routes.MapRoute(
                             name: "default",
-                            template: "{controller=Root}/{action=Get}")
+                            template: "{controller=Root}/{action=Get}",
+                            defaults: null,
+                            constraints: null,
+                            dataTokens: new {Namespace = typeof (PrintMood.ApiControllers.RootController).Namespace})
 
                             .MapRoute(
                                 name: "RpcRoute",
-                                template: "{controller}/{action}/{name?}");
+                                template: "{controller}/{action}/{name?}",
+                                defaults: null,
+                                constraints: null,
+                                dataTokens: new {Namespace = typeof (PrintMood.ApiControllers.RootController).Namespace});
                     });
             });            
         }

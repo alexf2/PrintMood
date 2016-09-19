@@ -14,6 +14,8 @@ namespace WebApiHelpers
 
         public WebApiErrorHandlingMiddleware(RequestDelegate next)
         {
+            if (next == null)
+                throw new ArgumentNullException(nameof(next));
             this.next = next;
         }
 
