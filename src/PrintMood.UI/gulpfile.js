@@ -25,7 +25,7 @@ paths.css = paths.webroot + "css/**/*.css";
 paths.minCss = paths.webroot + "css/**/*.min.css";
 paths.concatJsDest = paths.webroot + "js/site.min.js";
 paths.concatCssDest = paths.webroot + "css/site.min.css";
-paths.bower = './bower_modules/';
+paths.bower = './bower_components/';
 paths.lib = './' + paths.webroot + 'lib/';
 
 

@@ -4,6 +4,9 @@
 # Visual Studio 2015 cache/options directory
 .vs/
 
+# This folder is filled in by meand of Gulp copy from Bower_modules folder
+wwwroot/lib/
+
 # Specific
 _git/
 /SSL/
