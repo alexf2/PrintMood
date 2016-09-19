@@ -284,7 +284,6 @@
       if (document.querySelector(options.target) == null) {
         return false;
       }
-
       el = this.getElement();
       transform = "translate3d(" + this.progress + "%, 0, 0)";
       _ref2 = ['webkitTransform', 'msTransform', 'transform'];

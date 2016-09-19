@@ -1,4 +1,4 @@
-﻿/// <binding BeforeBuild='min' Clean='clean' />
+﻿/// <binding BeforeBuild='deploy'  />
 /*
 This file in the main entry point for defining Gulp tasks and using Gulp plugins.
 Click here to learn more. http://go.microsoft.com/fwlink/?LinkId=518007
@@ -13,7 +13,7 @@ var gulp = require("gulp"),
     uglify = require("gulp-uglify"),
     rename = require("gulp-rename"),
     sourcemaps = require('gulp-sourcemaps'),
-    plumber = require('gulp-plumber');
+    plumber = require('gulp-plumber');    
 
 var paths = {
     webroot: "./wwwroot/"
@@ -25,6 +25,8 @@ paths.css = paths.webroot + "css/**/*.css";
 paths.minCss = paths.webroot + "css/**/*.min.css";
 paths.concatJsDest = paths.webroot + "js/site.min.js";
 paths.concatCssDest = paths.webroot + "css/site.min.css";
+paths.bower = './bower_modules/';
+paths.lib = './' + paths.webroot + 'lib/';
 
 
 gulp.task("clean:js", function (cb) {
@@ -35,10 +37,14 @@ gulp.task("clean:css", function (cb) {
     rimraf(paths.concatCssDest, cb);
 });
 
-gulp.task("clean", ["clean:js", "clean:css"]);
+gulp.task("clean:lib", function (cb) {
+    rimraf(paths.lib + '**/*', cb);
+});
+
+gulp.task("clean", ["clean:js", "clean:css", "clean:lib"]);
 
 gulp.task("min:js", function () {
-    return gulp.src([paths.js, "!" + paths.minJs], { base: "." })
+    return gulp.src([paths.js, "!" + paths.minJs], {base: "." })
       .pipe(plumber())
       .pipe(sourcemaps.init())
       .pipe(concat(paths.concatJsDest))
@@ -48,11 +54,35 @@ gulp.task("min:js", function () {
 });
 
 gulp.task("min:css", function () {
-    return gulp.src([paths.css, "!" + paths.minCss])
+    return gulp.src([paths.css, "!" + paths.minCss], {base: "." })
       .pipe(plumber())
       .pipe(concat(paths.concatCssDest))
       .pipe(cssmin())
       .pipe(gulp.dest("."));
+});
+
+gulp.task("copy:bower", function () {
+    
+    return gulp.src([
+            paths.bower + "bootstrap/dist/**/*.{js,map,css,ttf,svg,woff,eot}*", "!**/npm.js",
+            paths.bower + "flexslider/*flexslider*.{css,js,map}",
+            paths.bower + "flexslider/fonts/*",
+            paths.bower + "flexslider/images/*",
+            paths.bower + "font-awesome/css/*",
+            paths.bower + "font-awesome/fonts/*",
+            paths.bower + "gmaps/gmaps*.{js,map}",
+            paths.bower + "html5shiv/dist/*",
+            paths.bower + "jquery/dist/jquery.*{js,map}", "!**/jquery.slim.*",
+            paths.bower + "jquery-validation/dist/jquery.validate.*{js,map}",
+            paths.bower + "jquery.nicescroll/dist/*",
+            paths.bower + "pace/*.js",
+            paths.bower + "respond/dest/respond.min.js",
+            paths.bower + "respond/dest/respond.src.js",
+            paths.bower + "*.{css,js}"
+    ], { base: paths.bower })
+
+            .pipe(gulp.dest(paths.lib));
+
 });
 
 /*gulp.task("min:ie8", function () {
@@ -62,4 +92,4 @@ gulp.task("min:css", function () {
       .pipe(gulp.dest("."));
 });*/
 
-gulp.task("min", ["min:js", "min:css"]);
+gulp.task("deploy", ["min:js", "min:css", "copy:bower"]);

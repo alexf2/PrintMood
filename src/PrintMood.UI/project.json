@@ -48,8 +48,8 @@
       "appsettings.json",
       "appsettings.Production.json",
       "web.config",
-      "logs"       
-    ]
+      "logs"
+    ]    
   },
 
   "scripts": {
