@@ -172,8 +172,6 @@ ClientBin/
 *.publishsettings
 node_modules/
 bower_components/
-# This folder is filled in by meand of Gulp copy from Bower_modules folder
-wwwroot/lib/
 
 # RIA/Silverlight projects
 Generated_Code/
@@ -224,3 +222,5 @@ $RECYCLE.BIN/
 *.msi
 *.msm
 *.msp
+# This folder is filled in by meand of Gulp copy from Bower_modules folder
+/src/PrintMood.UI/wwwroot/lib
