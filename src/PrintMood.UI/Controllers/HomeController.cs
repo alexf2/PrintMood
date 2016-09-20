@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using PrintMood.RequestDTO;
 using WebApiHelpers;
@@ -10,6 +7,7 @@ using WebApiHelpers;
 
 namespace PrintMood.Controllers
 {
+    [ServiceFilter(typeof(LanguageActionFilter))]
     public class HomeController : Controller
     {
         public IActionResult Index()

@@ -1,4 +1,5 @@
 ﻿@model PrintMood.Models.ViewModel
+@inject IViewLocalizer LocView
 
 @{
     ViewData["Title"] = "Printing on singlets, t-shirts and svitshots";
@@ -50,7 +51,7 @@
                 <div class=" container TitleSection">
                     <header class="page-head">
                         <h1>
-                            Who we <small> are</small>
+                            @LocView["TitleWho"]                            
                         </h1>
                     </header>
                 </div>

@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Net;
 using System.Runtime.ExceptionServices;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -13,7 +15,11 @@ using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.AspNetCore.Mvc.Formatters;
 using WebApiHelpers;
 using Microsoft.AspNetCore.Mvc.Internal;
+using Microsoft.AspNetCore.Mvc.Razor;
+using Microsoft.Extensions.Localization;
+using Microsoft.Extensions.Options;
 using Microsoft.Extensions.Primitives;
+using PrintMood.Resources;
 
 namespace PrintMood
 {
@@ -54,6 +60,8 @@ namespace PrintMood
             try
             {
                 services
+                    .AddLocalization(options => options.ResourcesPath = "Resources")
+                
                     .AddElm(opt =>
                     {
                         opt.Path = new PathString("/elm");
@@ -68,10 +76,36 @@ namespace PrintMood
                         opt.OutputFormatters.Insert(0, new JsonIdentedFormatter());
                         opt.OutputFormatters.Insert(0, new JsonDefaultFormatter());
                     })
-                    .AddViewLocalization()
+                    .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix)
                     .AddDataAnnotationsLocalization();
 
-                services.Replace(ServiceDescriptor.Singleton<ObjectResultExecutor, ObjectResultExecutorWithIndent>());                
+                //Substitutes Json formatters rcognizing "idented" query string parameter
+                services.Replace(ServiceDescriptor.Singleton<ObjectResultExecutor, ObjectResultExecutorWithIndent>());
+
+                
+                services.AddScoped<LanguageActionFilter>();
+
+                services.AddSingleton<Shared>();
+                    
+
+                services.Configure<RequestLocalizationOptions>(
+                    options =>
+                    {
+                        var supportedCultures = new List<CultureInfo>
+                            {
+                                new CultureInfo("en-US"),
+                                new CultureInfo("ru-RU"),
+                                new CultureInfo("sk-SK"),
+
+                                new CultureInfo("en"),
+                                new CultureInfo("ru"),
+                                new CultureInfo("sk")
+                            };
+
+                        options.DefaultRequestCulture = new RequestCulture(culture: "en-US", uiCulture: "en-US");
+                        options.SupportedCultures = supportedCultures;
+                        options.SupportedUICultures = supportedCultures;
+                    });
             }
             catch (Exception ex)
             {
@@ -81,7 +115,9 @@ namespace PrintMood
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
-        {                        
+        {
+            app.UseRequestLocalization(app.ApplicationServices.GetService<IOptions<RequestLocalizationOptions>>().Value);
+
             if (env.IsDevelopment())
             {
                 loggerFactory.AddConsole(Configuration.GetSection("Logging"))
