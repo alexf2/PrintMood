@@ -1,13 +1,11 @@
-﻿
-@using System.Security.Policy
+﻿@using System.Security.Policy
 @using Microsoft.AspNetCore.Diagnostics
-@using Microsoft.AspNetCore.Http.Features
-@using Microsoft.AspNetCore.Mvc.Razor
 @using Microsoft.AspNetCore.Mvc.Rendering
-@using Microsoft.AspNetCore.Mvc.ViewFeatures
+
+@inject IViewLocalizer LocView
 
 @{
-    ViewData["Title"] = "Error";
+    ViewData["Title"] = LocView["Error"];
     Layout = null;
 }
 
@@ -64,39 +62,39 @@
 
 <body style="background-color:#EB5055">
 
-    <!-- Full Page Image Header Area -->
-    <div id="top" class="header">
-        <div class="col-xs-12 col-md-6 col-md-offset-3 col-sm-12">
-            <div class="submitted" style="text-align: left">
-                <h3>An error occurred while processing your request.</h3>
-                To find out the cause you may contact the administartor and report the correlation number: @ViewContext.HttpContext.TraceIdentifier
-                <div>
-                    <a class="btn btn-link" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                        <b>Details »</b>
-                    </a>
-                    <div class="collapse" id="collapseExample">
-                        <div class="alert">
-                            <b>Http Status code:</b> @ViewContext.HttpContext.Response.StatusCode<br />
-                            @if (ViewContext.HttpContext.Response.StatusCode == 404)
-                            {                                                                    
-                                @:<b>Description:</b> Page "@(ViewContext.HttpContext.Features.Get<IStatusCodeReExecuteFeature>()?.OriginalPath)" is not found
-                            }
-                            else
-                            {
-                                @:<b>Description:</b> @(ViewContext.HttpContext.Features.Get<IExceptionHandlerFeature>()?.Error.Message)
-                            }
-</div>
+<!-- Full Page Image Header Area -->
+<div id="top" class="header">
+    <div class="col-xs-12 col-md-6 col-md-offset-3 col-sm-12">
+        <div class="submitted" style="text-align: left">
+            <h3>@LocView["An error occurred while processing your request."]</h3>
+            @LocView["To find out the cause you may contact the administartor and report the correlation number:"] @ViewContext.HttpContext.TraceIdentifier
+            <div>
+                <a class="btn btn-link" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                    <b>@LocView["Details »"]</ b >
+                </a>
+                <div class="collapse" id="collapseExample">
+                    <div class="alert">
+                        <b>@LocView["Http Status code:"]</b> @ViewContext.HttpContext.Response.StatusCode <br/>
+                        @if (ViewContext.HttpContext.Response.StatusCode == 404)
+                        {
+                            @(LocView["<b>Description:</b> Page \"{0}\" is not found", ViewContext.HttpContext.Features.Get<IStatusCodeReExecuteFeature>()?.OriginalPath])
+                        }
+                        else
+                        {
+                            @:<b>@(LocView["Description:"])</b> @(ViewContext.HttpContext.Features.Get<IExceptionHandlerFeature>()?.Error.Message)
+                        }
                     </div>
-                    <br />
                 </div>
-                <div class="text-right">
-                    <h1>
-                        <a href="@Url.Content("~/")" class="btn btn-default btn-lg" type="button">Go Home</a>
-                    </h1>
-                </div>
+                <br />
+            </div>
+            <div class="text-right">
+                <h1>
+                    <a href="@Url.Content("~/")" class="btn btn-default btn-lg" type="button">@LocView["Go Home"]</a>
+                </h1>
             </div>
         </div>
     </div>
+</div>
     <!-- /Full Page Image Header Area -->
 
     <environment names="Development">

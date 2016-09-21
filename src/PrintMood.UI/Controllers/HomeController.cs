@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using PrintMood.RequestDTO;
 using WebApiHelpers;
@@ -11,7 +12,8 @@ namespace PrintMood.Controllers
     public class HomeController : Controller
     {
         public IActionResult Index()
-        {            
+        {
+            //throw new Exception("ex");            
             return View();
         }        
 

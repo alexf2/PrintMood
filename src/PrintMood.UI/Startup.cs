@@ -102,7 +102,7 @@ namespace PrintMood
                                 new CultureInfo("sk")
                             };
 
-                        options.DefaultRequestCulture = new RequestCulture(culture: "en-US", uiCulture: "en-US");
+                        options.DefaultRequestCulture = new RequestCulture(culture: "en", uiCulture: "en");
                         options.SupportedCultures = supportedCultures;
                         options.SupportedUICultures = supportedCultures;
                     });
@@ -124,6 +124,7 @@ namespace PrintMood
                     .AddDebug(LogLevel.Debug);
 
                 app.UseDeveloperExceptionPage();                                
+                //app.UseExceptionHandler("/Home/Error");
             }
             else
             {

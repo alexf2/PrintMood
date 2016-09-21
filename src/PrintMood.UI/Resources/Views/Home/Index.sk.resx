@@ -117,7 +117,70 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="TitleWho" xml:space="preserve">
+  <data name="Address Info" xml:space="preserve">
+    <value>Adresa Info</value>
+  </data>
+  <data name="Contact &lt;small&gt; Us&lt;/small&gt;" xml:space="preserve">
+    <value>Kontakt &lt;small&gt; je &lt;/ small&gt;</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>E-mail</value>
+  </data>
+  <data name="Enter Email*" xml:space="preserve">
+    <value>Zadajte e-mail *</value>
+  </data>
+  <data name="Fax" xml:space="preserve">
+    <value>Fax</value>
+  </data>
+  <data name="Find the Address" xml:space="preserve">
+    <value>Nájsť adresy</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>Ďalšie</value>
+  </data>
+  <data name="Order your printing" xml:space="preserve">
+    <value>Objednať tlač</value>
+  </data>
+  <data name="Order your printing &lt;small&gt; online&lt;/small&gt;" xml:space="preserve">
+    <value>Objednať tlač &lt;small&gt; Online &lt;/ small&gt;</value>
+  </data>
+  <data name="People choose us for our creativity, focused on their theme, resulting in an amazing prints, meeting moods, for quick work and high quality." xml:space="preserve">
+    <value>Ľudia si nás vyberajú pre našu kreativitu, so zameraním na ich tému, čo má za následok neuveriteľných výtlačkov, spoločenské nálady, pre rýchlu prácu a vysokou kvalitou.</value>
+  </data>
+  <data name="Previous" xml:space="preserve">
+    <value>Predchádzajúce</value>
+  </data>
+  <data name="Printing on singlets, t-shirts and svitshots" xml:space="preserve">
+    <value>Tlač ho tielka, tričká Andes svitshots</value>
+  </data>
+  <data name="Send Message" xml:space="preserve">
+    <value>Poslať správu</value>
+  </data>
+  <data name="Tel" xml:space="preserve">
+    <value>Telefón</value>
+  </data>
+  <data name="We are passionated on our job and make plaenty of creative new printings every week to meet people moods" xml:space="preserve">
+    <value>Sme vášnivý o svojej práci a robiť veľa kreatívnych nových potlačí každý týždeň stretnúť sa s ľuďmi nálady</value>
+  </data>
+  <data name="We may creatively paint thematic printings for you as well as print yours one" xml:space="preserve">
+    <value>Môžeme kreatívne maľovať tematické potlačami pre vás, rovnako ako tlačové vy jedno</value>
+  </data>
+  <data name="We print on T-shirts, svitshots and hoodies" xml:space="preserve">
+    <value>Tlačíme na tričiek, mikiny</value>
+  </data>
+  <data name="We provide wholesale supplies as well as retail" xml:space="preserve">
+    <value>Zaisťujeme veľkoobchodné dodávky, rovnako ako predajne</value>
+  </data>
+  <data name="Who we &lt;small&gt; are&lt;/small&gt;" xml:space="preserve">
     <value>Kto&lt;small&gt; sme&lt;/small&gt;</value>
+  </data>
+  <data name="Why people choose &lt;small&gt; Us&lt;/small&gt;" xml:space="preserve">
+    <value>Prečo sa ľudia rozhodnú &lt;small&gt; je &lt;/ small&gt;</value>
+  </data>
+  <data name="Your Message*" xml:space="preserve">
+    <value>Tvoja správa*</value>
+  </data>
+  <data name="Your Name*" xml:space="preserve">
+    <value>Tvoje meno*</value>
   </data>
 </root>

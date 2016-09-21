@@ -117,34 +117,46 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Contact" xml:space="preserve">
+  <data name="Choose a shirt type, upload your print and order now" xml:space="preserve">
+    <value>Выберите тип футболки, загрузите свой принт и закажите</value>
+  </data>
+  <data name="Contact Us" xml:space="preserve">
+    <value>Наши контакты</value>
+  </data>
+  <data name="Contacts" xml:space="preserve">
     <value>Контакты</value>
   </data>
-  <data name="ContactT" xml:space="preserve">
-    <value>Наши контакты</value>
+  <data name="Copyright &amp;copy; 2016 Vladimir Trofimov. All rights reserved." xml:space="preserve">
+    <value>Авторские права &amp;copy; 2016 Владимир Трофимов. Все права защищены</value>
   </data>
   <data name="Home" xml:space="preserve">
     <value>Домой</value>
   </data>
-  <data name="HomeT" xml:space="preserve">
-    <value>Перейти на первую страницу</value>
-  </data>
   <data name="Ordering" xml:space="preserve">
     <value>Заказ</value>
   </data>
-  <data name="OrderingT" xml:space="preserve">
-    <value>Выберите тип футболки, загрузите свой принт и закажите</value>
+  <data name="Print Mood who" xml:space="preserve">
+    <value>Print Mood - кто мы</value>
+  </data>
+  <data name="printing on singlets, printing on t-shorts, printing on svitshots, print order website, creative, Print Mood" xml:space="preserve">
+    <value>печать на майках, печать на футболках, печать на свитшотах, сайт заказа печати, кретивно, Print Mood</value>
+  </data>
+  <data name="Printing on singlets, t-shirts and svitshots" xml:space="preserve">
+    <value>Печать на футболках, худи и свиншотах</value>
+  </data>
+  <data name="Return to the first page" xml:space="preserve">
+    <value>Перейти на первую страницу</value>
+  </data>
+  <data name="Vladimir Trofimov" xml:space="preserve">
+    <value>Владимир Трофимов</value>
   </data>
   <data name="Who" xml:space="preserve">
     <value>Кто</value>
   </data>
-  <data name="WhoT" xml:space="preserve">
-    <value>Print Mood - кто мы</value>
-  </data>
   <data name="Why" xml:space="preserve">
     <value>Почему</value>
   </data>
-  <data name="WhyT" xml:space="preserve">
+  <data name="Why people choose us" xml:space="preserve">
     <value>Почему люди выбирают нас</value>
   </data>
 </root>

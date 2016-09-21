@@ -117,34 +117,40 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Choose a shirt type, upload your print and order now" xml:space="preserve">
+    <value>Vyberte typ tričiek, nahrať svoj tlač a urobiť</value>
+  </data>
   <data name="Contact" xml:space="preserve">
     <value>Objednávka</value>
   </data>
-  <data name="ContactT" xml:space="preserve">
+  <data name="Contact Us" xml:space="preserve">
     <value>Naše kontakty</value>
+  </data>
+  <data name="Copyright &amp;copy; 2016 Vladimir Trofimov. All rights reserved." xml:space="preserve">
+    <value>Copyright &amp;copy; 2016 Vladimir Trofimov. Všetky práva vyhradené.</value>
   </data>
   <data name="Home" xml:space="preserve">
     <value>Domov</value>
   </data>
-  <data name="HomeT" xml:space="preserve">
-    <value>Перейти на первую страницу</value>
-  </data>
   <data name="Ordering" xml:space="preserve">
-    <value>Заказ</value>
+    <value>Objednávka</value>
   </data>
-  <data name="OrderingT" xml:space="preserve">
-    <value>Vyberte typ tričiek, nahrať svoj tlač a urobiť</value>
+  <data name="Print Mood who" xml:space="preserve">
+    <value>Print Mood - kto sme</value>
+  </data>
+  <data name="Printing on singlets, t-shirts and svitshots" xml:space="preserve">
+    <value>Tlač ho tielka, tričká Andes svitshots</value>
+  </data>
+  <data name="Return to the first page" xml:space="preserve">
+    <value>Prechod na prvú stránku</value>
   </data>
   <data name="Who" xml:space="preserve">
     <value>Kto</value>
   </data>
-  <data name="WhoT" xml:space="preserve">
-    <value>Print Mood - kto sme</value>
-  </data>
   <data name="Why" xml:space="preserve">
     <value>Prečo</value>
   </data>
-  <data name="WhyT" xml:space="preserve">
+  <data name="Why people choose us" xml:space="preserve">
     <value>Prečo sa ľudia rozhodnú nás</value>
   </data>
 </root>

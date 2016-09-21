@@ -371,7 +371,7 @@ address { font-size: 1em; }
 .contact_wrap .form-group { margin-bottom: 15px; }
 .contact_wrap label { margin-bottom: 5px; }
 label.error { color: #F0D8D9; display: block; float: none; font-size: 14px; margin-top: 5px; text-transform: none; width: auto; }
-.submitted { background: none repeat scroll 0 0 rgba(255, 255, 255, 0.4); padding: 25px; text-align: center; margin: 50px 0; }
+.submitted { background: none repeat scroll 0 0 rgba(255, 255, 255, 0.4); padding: 25px; text-align: center; margin: 50px 0; border-radius: 6px; }
 .container .jumbotron.option2 { margin-top: 25px; padding: 80px 30px; }
 .jumbotron.option2 .social_icons { position:relative; text-align:left; }
 .jumbotron.option2 .social_icons > ul { margin: 5px 0 !important; padding: 0; }

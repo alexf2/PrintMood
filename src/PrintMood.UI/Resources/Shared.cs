@@ -1,19 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc.Localization;
 using Microsoft.Extensions.Localization;
 
 namespace PrintMood.Resources
 {
-    public class Shared
+    public sealed class Shared
     {
-        readonly IStringLocalizerFactory _fac;
-        public Shared(IStringLocalizerFactory fac)
+        readonly IStringLocalizerFactory _stringFac;
+        readonly IHtmlLocalizerFactory _htmlFac;
+        readonly IHostingEnvironment _env;
+
+        public Shared(IStringLocalizerFactory stringFac, IHtmlLocalizerFactory htmlFac, IHostingEnvironment env)
         {
-            _fac = fac;
+            _stringFac = stringFac;
+            _htmlFac = htmlFac;
+            _env = env;
         }
 
-        public IStringLocalizer Localizer => _fac.Create(nameof(Shared), null);
+        public IStringLocalizer Localizer => _stringFac.Create(nameof(Shared), null);
+
+        public IHtmlLocalizer HtmlLocalizer => _htmlFac.Create(nameof(Shared), _env.ApplicationName);
     }
 }

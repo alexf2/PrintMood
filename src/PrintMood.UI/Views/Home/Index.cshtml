@@ -2,7 +2,7 @@
 @inject IViewLocalizer LocView
 
 @{
-    ViewData["Title"] = "Printing on singlets, t-shirts and svitshots";
+    ViewData["Title"] = LocView["Printing on singlets, t-shirts and svitshots"];
 }
 
 @section scripts
@@ -13,31 +13,31 @@
 {   
 }
 
-@Html.Hidden("texts.prev", "Previous")
-@Html.Hidden("texts.next", "Next")
+@Html.Hidden("texts.prev", @LocView["Previous"])
+@Html.Hidden("texts.next", @LocView["Next"])
 
 <div id="top" class="header">
     <div class="flexslider">
         <ul class="slides">
             <li>
                 <img src="~/images/slider/p1.jpg" alt="slider" asp-append-version="true" />
-                <p class="flex-caption flex-caption-shift2">People choose us for our creativity, focused on their theme, resulting in an amazing prints, meeting moods, for quick work and high quality. <a href="#order">Order your printing</a></p>
+                <p class="flex-caption flex-caption-shift2">@LocView["People choose us for our creativity, focused on their theme, resulting in an amazing prints, meeting moods, for quick work and high quality."] <a href="#order">@LocView["Order your printing"]</a></p>
             </li>
             <li>
                 <img src="~/images/slider/p2.jpg" alt="slider" asp-append-version="true" />
-                <p class="flex-caption">We print on T-shirts, svitshots and hoodies</p>
+                <p class="flex-caption">@LocView["We print on T-shirts, svitshots and hoodies"]</p>
             </li>
             <li>
                 <img class="flipped" src="~/images/slider/p3.jpg" alt="slider" asp-append-version="true" />
-                <p class="flex-caption">We are passionated on our job and make plaenty of creative new printings every week to meet people moods</p>
+                <p class="flex-caption">@LocView["We are passionated on our job and make plaenty of creative new printings every week to meet people moods"]</p>
             </li>
             <li>
                 <img src="~/images/slider/p4.jpg" alt="slider" asp-append-version="true" />
-                <p class="flex-caption">We provide wholesale supplies as well as retail</p>
+                <p class="flex-caption">@LocView["We provide wholesale supplies as well as retail"]</p>
             </li>
             <li>
                 <img class="flipped" src="~/images/slider/p5.jpg" alt="slider" asp-append-version="true" />
-                <p class="flex-caption flex-caption-shift">We may creatively paint thematic printings for you as well as print yours one</p>
+                <p class="flex-caption flex-caption-shift">@LocView["We may creatively paint thematic printings for you as well as print yours one"]</p>
             </li>
         </ul>
     </div>
@@ -48,10 +48,10 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-12 col-md-12 col-sm-12">
-                <div class=" container TitleSection">
+                <div class="container TitleSection">
                     <header class="page-head">
                         <h1>
-                            @LocView["TitleWho"]                            
+                            @LocView["Who we <small> are</small>"]                            
                         </h1>
                     </header>
                 </div>
@@ -135,7 +135,7 @@
                 <div class=" container TitleSection">
                     <header class="page-head">
                         <h1>
-                            Why people choose <small> Us</small>
+                            @LocView["Why people choose <small> Us</small>"]
                         </h1>
                     </header>
                 </div>
@@ -193,8 +193,6 @@
                                 </li>
                             </ul>
                         </div>
-
-
                     </div>
                 </div>
 
@@ -211,7 +209,7 @@
                 <div class=" container TitleSection">
                     <header class="page-head">
                         <h1>
-                            Order your printing <small> online</small>
+                            @LocView["Order your printing <small> online</small>"]
                         </h1>
                     </header>
                 </div>
@@ -232,7 +230,7 @@
                 <div class=" container TitleSection">
                     <header class="page-head">
                         <h1>
-                            Contact <small> Us</small>
+                            @LocView["Contact <small> Us</small>"]
                         </h1>
                     </header>
                 </div>
@@ -244,7 +242,7 @@
                         </p>
                         <p>
                             Please be patient while waiting for response. (24/7 Support!) <br>
-                            <strong> Phone General Inquiries: 1-234-567-8910-1234</strong>
+                            <strong>Phone General Inquiries: 1-234-567-8910-1234</strong>
                         </p>
 
                         <div class="contact_wrap">
@@ -255,7 +253,7 @@
                                     <span data-valmsg-for="Name" data-valmsg-replace="true"></span>
                                     <div>
                                         <i class="fa fa-asterisk required2" aria-hidden="true"></i>
-                                        <input asp-for="MailData.Name" name="Name" id="Name" size="50" class="form-control required" placeholder="Your Name*"/>
+                                        <input asp-for="MailData.Name" name="Name" id="Name" size="50" class="form-control required" placeholder="@LocView["Your Name*"]"/>
                                     </div>
                                 </div>
 
@@ -263,7 +261,7 @@
                                     <span data-valmsg-for="Email" data-valmsg-replace="true"></span>
                                     <div>
                                         <i class="fa fa-asterisk required2" aria-hidden="true"></i>
-                                        <input asp-for="MailData.Email" size="50" name="Email" id="Email" class="form-control required email" placeholder="Enter Email*"/>
+                                        <input asp-for="MailData.Email" size="50" name="Email" id="Email" class="form-control required email" placeholder="@LocView["Enter Email*"]"/>
                                     </div>
                                 </div>
 
@@ -275,30 +273,30 @@
                                     <span data-valmsg-for="Message" data-valmsg-replace="true"></span>
                                     <div>
                                         <i class="fa fa-asterisk required2" aria-hidden="true"></i>
-                                        <textarea asp-for="MailData.Message" class="form-control required" rows="6" name="Message" id="Message" placeholder="Your Message*"></textarea>
+                                        <textarea asp-for="MailData.Message" class="form-control required" rows="6" name="Message" id="Message" placeholder="@LocView["Your Message*"]"></textarea>
                                     </div>
                                 </div>
-                                <button type="submit" class="btn btn-default">Send Message</button>                                                               
+                                <button type="submit" class="btn btn-default">@LocView["Send Message"]</button>
                             </form>
                         </div>
                     </div>
 
                     <div class="col-xs-12 col-md-5 col-sm-12">
                         <div class="jumbotron">
-                            <h3>Address Info</h3>
+                            <h3>@LocView["Address Info"]</h3>
                             <address>
                                 <strong>Print Mood, L.L.C.</strong><br>
                                 82106 Bratislava, Pri trati, 25A<br>
-                                <abbr title="Phone">Tel:</abbr> (123) 456-7890;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <abbr title="Fax">Fax:</abbr> (123) 456-7890
+                                <abbr title="Phone">@LocView["Tel"]:</abbr> (123) 456-7890;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <abbr title="Fax">@LocView["Fax"]:</abbr> (123) 456-7890
                             </address>
                             <address>
-                                <strong>Email:&nbsp;</strong> <a href="mailto:#">info@printmood.com</a><br>
+                                <strong>@LocView["Email"]:&nbsp;</strong> <a href="mailto:#">info@printmood.com</a><br>
                                 <strong>Web Site:&nbsp;</strong> <a href="~/">www.printmood.com</a>
                             </address>
                         </div>
                         <div class="google">
-                            <h3>Find the Address</h3>
+                            <h3>@LocView["Find the Address"]</h3>
                             <div id="map"></div>
                         </div>
                     </div>

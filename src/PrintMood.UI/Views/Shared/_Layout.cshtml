@@ -1,19 +1,20 @@
-﻿@using System.Security.Policy
+﻿@using System.Globalization
+@using System.Security.Policy
 @inject Shared LocSharedHelper
 
 @{
-    var LocShared = LocSharedHelper.Localizer;
+    var LocShared = LocSharedHelper.HtmlLocalizer;
 }
 
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="@CultureInfo.CurrentUICulture.TwoLetterISOLanguageName">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Printing on singlets, t-shirts and svitshots">
-    <meta name="author" content="Vladimir Trofimov">
-    <meta name="keywords" content="printing on singlets, printing on t-shorts, printing on svitshots, print order website, creative, Print Mood">
+    <meta name="description" content="@LocShared["Printing on singlets, t-shirts and svitshots"]">
+    <meta name="author" content="@LocShared["Vladimir Trofimov"]">
+    <meta name="keywords" content="@LocShared["printing on singlets, printing on t-shorts, printing on svitshots, print order website, creative, Print Mood"]">
 
     <meta property="og:title" content="@ViewData["Title"] - (-: Print Mood :-)" />
     <meta property="og:url" content="@Url.Content("~/www.printmood.com")" />
@@ -79,15 +80,15 @@
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-                <a class="navbar-brand logo" href="~/">Project name</a>
+                <a class="navbar-brand logo" href="~/">PrintMood</a>
             </div>
             <div class="navbar-collapse collapse ">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#top">@LocShared["Home"]</a></li>
-                    <li><a href="#services" title='@LocShared["WhoT"]'>@LocShared["Who"]</a></li>
-                    <li><a href="#portfolio" title='@LocShared["WhyT"]'>@LocShared["Why"]</a></li>                    
-                    <li><a href="#order" title='@LocShared["OrderingT"]'>@LocShared["Ordering"]</a></li>
-                    <li><a href="#contact" title='@LocShared["ContactT"]'>@LocShared["Contact"]</a></li>
+                    <li><a href="#top" title='@LocShared["Return to the first page"]'>@LocShared["Home"]</a></li>
+                    <li><a href="#services" title='@LocShared["Print Mood who"]'>@LocShared["Who"]</a></li>
+                    <li><a href="#portfolio" title='@LocShared["Why people choose us"]'>@LocShared["Why"]</a></li>                    
+                    <li><a href="#order" title='@LocShared["Choose a shirt type, upload your print and order now"]'>@LocShared["Ordering"]</a></li>
+                    <li><a href="#contact" title='@LocShared["Contact Us"]'>@LocShared["Contacts"]</a></li>
                 </ul>
             </div>
             <!--/.nav-collapse -->
@@ -102,7 +103,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 col-md-9 col-sm-12">
-                    <p>Copyright &copy; 2016 Vladimir Trofimov. All rights reserved.</p>
+                    <p>@LocShared["Copyright &copy; 2016 Vladimir Trofimov. All rights reserved."]</p>
                 </div>
                 <div class="col-xs-12 col-md-3 col-sm-12">
                     <ul class=" footer_social clearfix">
