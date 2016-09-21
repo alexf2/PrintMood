@@ -75,15 +75,16 @@ namespace PrintMood
                         opt.OutputFormatters.RemoveType<JsonOutputFormatter>();
                         opt.OutputFormatters.Insert(0, new JsonIdentedFormatter());
                         opt.OutputFormatters.Insert(0, new JsonDefaultFormatter());
+
+                        opt.Filters.Add(new CultureSettingResourceFilter());
                     })
                     .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix)
                     .AddDataAnnotationsLocalization();
 
                 //Substitutes Json formatters rcognizing "idented" query string parameter
-                services.Replace(ServiceDescriptor.Singleton<ObjectResultExecutor, ObjectResultExecutorWithIndent>());
-
+                services.Replace(ServiceDescriptor.Singleton<ObjectResultExecutor, ObjectResultExecutorWithIndent>());                
                 
-                services.AddScoped<LanguageActionFilter>();
+                //services.AddScoped<LanguageActionFilter>();
 
                 services.AddSingleton<Shared>();
                     
@@ -123,7 +124,7 @@ namespace PrintMood
                 loggerFactory.AddConsole(Configuration.GetSection("Logging"))
                     .AddDebug(LogLevel.Debug);
 
-                app.UseDeveloperExceptionPage();                                
+                app.UseDeveloperExceptionPage();
                 //app.UseExceptionHandler("/Home/Error");
             }
             else
@@ -155,7 +156,7 @@ namespace PrintMood
                     routes.MapRoute(
                         name: "default",
                         template: "{controller=Home}/{action=Index}/{id?}",
-                        defaults: new {lang="en"},
+                        defaults: null,
                         constraints: null,
                         dataTokens: new {Namespace = typeof (PrintMood.Controllers.HomeController).Namespace}
                         )

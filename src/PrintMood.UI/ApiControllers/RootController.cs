@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection;
 using Microsoft.AspNetCore.Mvc;
 using PrintMood.ResponseDTO;
 using WebApiHelpers;
@@ -19,7 +20,7 @@ namespace PrintMood.ApiControllers
             return Ok(new ServiceInfo()
             {
                 ApplicationName = "Rambler.Cinema service",
-                ApiVersion = VersionHelpers.GetProductVersion(GetType().Assembly),
+                ApiVersion = VersionHelpers.GetProductVersion(GetType().GetTypeInfo().Assembly),
                 Links = new { Self = Url.Link("default", null) }
             });
         }

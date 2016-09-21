@@ -7,11 +7,13 @@ namespace WebApiHelpers
     {
         public static string GetProductVersion(Assembly ass)
         {
-            var attribute = (AssemblyInformationalVersionAttribute)(ass ?? Assembly.GetExecutingAssembly())
+            /*var attribute = (AssemblyInformationalVersionAttribute)(ass ?? Assembly.GetExecutingAssembly())
               .GetCustomAttributes(typeof(AssemblyInformationalVersionAttribute), true)
               .Single();
 
-            return attribute.InformationalVersion;
+            return attribute.InformationalVersion;*/
+
+            return "tt";
         }
     }
 }

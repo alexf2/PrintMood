@@ -15,7 +15,7 @@ namespace WebApiHelpers
             SerializerSettings.DefaultValueHandling = DefaultValueHandling.Include;
             SerializerSettings.DateFormatHandling = DateFormatHandling.IsoDateFormat;
             SerializerSettings.DateTimeZoneHandling = DateTimeZoneHandling.Utc;
-            SerializerSettings.TypeNameHandling = TypeNameHandling.Auto;
+            SerializerSettings.TypeNameHandling = TypeNameHandling.None;
             SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
 
             SerializerSettings.Converters.Add(new StringEnumConverter { CamelCaseText = false });
