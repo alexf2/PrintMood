@@ -50,7 +50,8 @@
 
   "buildOptions": {
     "emitEntryPoint": true,
-    "preserveCompilationContext": true
+    "preserveCompilationContext": true,
+    "define": []
   },
 
   "runtimeOptions": {
