@@ -4,6 +4,10 @@ using Microsoft.Extensions.Localization;
 
 namespace PrintMood.Resources
 {
+    /// <summary>
+    /// Resource access helper for shared resources.
+    /// Put Shared.XX.resx besides this file.
+    /// </summary>
     public sealed class Shared
     {
         readonly IStringLocalizerFactory _stringFac;

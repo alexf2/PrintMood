@@ -79,7 +79,7 @@ namespace PrintMood
                         opt.Filters.Add(new CultureSettingResourceFilter());
                     })
                     .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix)
-                    .AddDataAnnotationsLocalization();
+                    .AddDataAnnotationsLocalization(opt => opt.DataAnnotationLocalizerProvider = (t, f) => f.Create(string.Join(".", t.Namespace.Split('.').Skip(1)) + "." + t.Name, null));
 
                 //Substitutes Json formatters rcognizing "idented" query string parameter
                 services.Replace(ServiceDescriptor.Singleton<ObjectResultExecutor, ObjectResultExecutorWithIndent>());                

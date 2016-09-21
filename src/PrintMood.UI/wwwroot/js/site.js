@@ -82,8 +82,8 @@
             start: function(slider) {
                 $('body').removeClass('loading');
             },
-            prevText: $('#texts.prev').val(),
-            nextText: $('#texts.next').val()
+            prevText: $('[name = "texts.prev"]').val(),
+            nextText: $('[name = "texts.next"]').val()
         });
 
     $('.flexslider .flex-prev, .flexslider .flex-next').each(function(idx, el) {

@@ -117,40 +117,19 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Choose a shirt type, upload your print and order now" xml:space="preserve">
-    <value>Vyberte typ tričiek, nahrať svoj tlač a urobiť</value>
+  <data name="The message is empty" xml:space="preserve">
+    <value>Пустое сообщение</value>
   </data>
-  <data name="Contact" xml:space="preserve">
-    <value>Objednávka</value>
+  <data name="Your Email is missing" xml:space="preserve">
+    <value>Пожалуйста, укажите E-Mail</value>
   </data>
-  <data name="Contact Us" xml:space="preserve">
-    <value>Naše kontakty</value>
+  <data name="Your Message should not be shorter than 10 characters" xml:space="preserve">
+    <value>Сообщение должно быть не короче 10-ти символов</value>
   </data>
-  <data name="Copyright &amp;copy; 2016 Vladimir Trofimov. All rights reserved." xml:space="preserve">
-    <value>Copyright &amp;copy; 2016 Vladimir Trofimov. Všetky práva vyhradené.</value>
+  <data name="Your Name is missing" xml:space="preserve">
+    <value>Пожалуйста, укажите Ваше имя</value>
   </data>
-  <data name="Home" xml:space="preserve">
-    <value>Domov</value>
-  </data>
-  <data name="Ordering" xml:space="preserve">
-    <value>Objednávka</value>
-  </data>
-  <data name="Print Mood who" xml:space="preserve">
-    <value>Print Mood - kto sme</value>
-  </data>
-  <data name="Printing on singlets, t-shirts and svitshots" xml:space="preserve">
-    <value>Tlač ho tielka, tričká Andes svitshots</value>
-  </data>
-  <data name="Return to the first page" xml:space="preserve">
-    <value>Prechod na prvú stránku</value>
-  </data>
-  <data name="Who" xml:space="preserve">
-    <value>Kto</value>
-  </data>
-  <data name="Why" xml:space="preserve">
-    <value>Prečo</value>
-  </data>
-  <data name="Why people choose us" xml:space="preserve">
-    <value>Prečo sa ľudia rozhodnú nás</value>
+  <data name="Your Name should not be shorter than 5 characters" xml:space="preserve">
+    <value>Ваше имя должно быть не короче 5-ти символов</value>
   </data>
 </root>

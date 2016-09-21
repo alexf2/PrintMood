@@ -13,8 +13,8 @@
 {   
 }
 
-@Html.Hidden("texts.prev", @LocView["Previous"])
-@Html.Hidden("texts.next", @LocView["Next"])
+@Html.Hidden("texts.prev", @LocView["Previous"].Value)
+@Html.Hidden("texts.next", @LocView["Next"].Value)
 
 <div id="top" class="header">
     <div class="flexslider">
