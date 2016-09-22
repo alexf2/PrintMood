@@ -2,7 +2,7 @@
   "version": "1.0.0-*",
   "dependencies": {
     "Microsoft.AspNetCore.Diagnostics": "1.0.0",
-    "Microsoft.AspNetCore.Mvc.Formatters.Json": "1.0.0",
+    "Microsoft.AspNetCore.Mvc.Formatters.Json": "1.0.1",
     "NETStandard.Library": "1.6.0"
   },
   "frameworks": {

@@ -2,7 +2,7 @@
   "locked": false,
   "version": 2,
   "targets": {
-    ".NETCoreApp,Version=v1.0": {
+    ".NETCoreApp,Version=v1.1": {
       "Libuv/1.9.0": {
         "type": "package",
         "dependencies": {
@@ -3805,7 +3805,7 @@
         "framework": ".NETStandard,Version=v1.6",
         "dependencies": {
           "Microsoft.AspNetCore.Diagnostics": "1.0.0",
-          "Microsoft.AspNetCore.Mvc.Formatters.Json": "1.0.0",
+          "Microsoft.AspNetCore.Mvc.Formatters.Json": "1.0.1",
           "NETStandard.Library": "1.6.0"
         },
         "compile": {
@@ -9912,7 +9912,7 @@
       "Microsoft.NETCore.App >= 1.0.1",
       "WebApiHelpers >= 1.0.0-*"
     ],
-    ".NETCoreApp,Version=v1.0": []
+    ".NETCoreApp,Version=v1.1": []
   },
   "tools": {
     ".NETCoreApp,Version=v1.0": {
