@@ -58,8 +58,10 @@ namespace PrintMood
         public void ConfigureServices (IServiceCollection services)
         {
             try
-            {
+            {                
                 services
+                    .AddOptions()
+                    .Configure<MailConfig>(Configuration.GetSection("MainConfig:Mail"))
                     .AddLocalization(options => options.ResourcesPath = "Resources")
                 
                     .AddElm(opt =>
