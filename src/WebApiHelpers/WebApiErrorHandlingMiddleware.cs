@@ -8,6 +8,9 @@ using Newtonsoft.Json;
 
 namespace WebApiHelpers
 {
+    /// <summary>
+    /// Returns exceptions as JSON, in the response body, and sets http code to 500.
+    /// </summary>
     public sealed class WebApiErrorHandlingMiddleware
     {
         private readonly RequestDelegate next;

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using System.Net;
@@ -19,6 +20,7 @@ using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.Extensions.Localization;
 using Microsoft.Extensions.Options;
 using Microsoft.Extensions.Primitives;
+using PrintMood.Config;
 using PrintMood.Resources;
 
 namespace PrintMood
@@ -61,7 +63,7 @@ namespace PrintMood
             {                
                 services
                     .AddOptions()
-                    .Configure<MailConfig>(Configuration.GetSection("MainConfig:Mail"))
+                    .Configure<MailConfig>(Configuration.GetSection("MainConfig:Mail"))                    
                     .AddLocalization(options => options.ResourcesPath = "Resources")
                 
                     .AddElm(opt =>
@@ -88,24 +90,20 @@ namespace PrintMood
                 
                 //services.AddScoped<LanguageActionFilter>();
 
-                services.AddSingleton<Shared>();
-                    
+                services.AddSingleton<Shared>();                
 
                 services.Configure<RequestLocalizationOptions>(
                     options =>
                     {
-                        var supportedCultures = new List<CultureInfo>
-                            {
-                                new CultureInfo("en-US"),
-                                new CultureInfo("ru-RU"),
-                                new CultureInfo("sk-SK"),
+                        var confTmp =
+                            new ConfigureFromConfigurationOptions<LocalizationConfig>(Configuration.GetSection("MainConfig:Localization"));                       
 
-                                new CultureInfo("en"),
-                                new CultureInfo("ru"),
-                                new CultureInfo("sk")
-                            };
+                        var localeConfig = new LocalizationConfig();
+                        confTmp.Configure(localeConfig);                        
 
-                        options.DefaultRequestCulture = new RequestCulture(culture: "en", uiCulture: "en");
+                        var supportedCultures = localeConfig.Locales.Select(loc => new CultureInfo(loc)).ToList();                                                   
+
+                        options.DefaultRequestCulture = new RequestCulture(culture: localeConfig.Default.General, uiCulture: localeConfig.Default.Ui);
                         options.SupportedCultures = supportedCultures;
                         options.SupportedUICultures = supportedCultures;
                     });
@@ -196,6 +194,9 @@ namespace PrintMood
             });            
         }
 
+        /// <summary>
+        /// User for startup errors
+        /// </summary>
         void ReturnErrors(IApplicationBuilder app, ILogger logger)
         {            
             app.Run(
