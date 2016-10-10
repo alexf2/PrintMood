@@ -1,20 +1,28 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Localization;
 using Microsoft.Extensions.Options;
 using PrintMood.Config;
 using PrintMood.RequestDTO;
 using WebApiHelpers;
+using WebApiHelpers.Contracts;
 
 namespace PrintMood.Controllers
-{
-    //[ServiceFilter(typeof(LanguageActionFilter))]
+{    
     public class HomeController : Controller
     {
-        readonly IOptions<MailConfig> _mailConfig;
+        private const string MailProfile = "Main";
 
-        public HomeController(IOptions<MailConfig> mailConfig)
+        readonly ISmtpServiceFactory _smtpFactory;
+        readonly IStringLocalizer<HomeController> _localizerizer;
+
+        private IStringLocalizerFactory _stringFac;
+
+        public HomeController (ISmtpServiceFactory smtpFactory, IStringLocalizer<HomeController> localizerizer, IStringLocalizerFactory stringFac)
         {
-            _mailConfig = mailConfig;
+            _smtpFactory = smtpFactory;
+            _localizerizer = localizerizer;
+            _stringFac = stringFac;
         }
 
         public IActionResult Index()
@@ -32,7 +40,20 @@ namespace PrintMood.Controllers
         [InvalidModelStateFilter]
         public async Task<IActionResult> SendMail( [FromForm] MailData md )
         {
-            return Ok($"The message successfully sent: {md.Name}");
+            var mailService = _smtpFactory.Create(MailProfile);
+
+            var msg = md.Message;
+            if (!string.IsNullOrWhiteSpace(md.SiteUrl))
+                msg += "\r\nContact Site: " + md.SiteUrl;
+
+            await mailService.Send(md.Email, $"Message from {md.Name}", msg);
+
+            StringLocalizer<HomeController> ll = null;
+            var cc = _stringFac.Create(this.GetType());
+
+            Microsoft.Extensions.Localization.ResourceManagerStringLocalizer hh = null;
+
+            return Ok(_localizerizer["Your message successfully sent"].Value);
         }
     }
 }

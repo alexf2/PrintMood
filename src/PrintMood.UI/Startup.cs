@@ -22,6 +22,7 @@ using Microsoft.Extensions.Options;
 using Microsoft.Extensions.Primitives;
 using PrintMood.Config;
 using PrintMood.Resources;
+using WebApiHelpers.Contracts;
 
 namespace PrintMood
 {
@@ -107,6 +108,8 @@ namespace PrintMood
                         options.SupportedCultures = supportedCultures;
                         options.SupportedUICultures = supportedCultures;
                     });
+
+                services.AddSingleton<ISmtpServiceFactory, SmtpServiceFactory>();
             }
             catch (Exception ex)
             {
