@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="We are sorry, an error occurred while sending your message. To find out the cause you may contact the administartor and report the correlation number: {0}" xml:space="preserve">
+    <value>Мы сожалеем, при отправке вашего сообщения возникла ошибка. Для устранения причины Вы можете связаться с администратором и сообщить идентификатор: {0}</value>
+  </data>
   <data name="Your message successfully sent" xml:space="preserve">
     <value>Ваше сообщение успешно отправлено</value>
   </data>

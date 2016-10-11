@@ -24,7 +24,7 @@ namespace PrintMood.Config
             if (cfg == null)
                 throw new ArgumentException($"Mail profile '{profileName}' not found.");
 
-            return new SmtpService(cfg.Settings);
+            return new SmtpService(cfg.Settings, cfg.Description);
         }
     }
 }
