@@ -1,8 +1,26 @@
-﻿@model PrintMood.Models.ViewModel
+﻿@using System.Globalization
+@using System.Threading.Tasks
+@using Microsoft.AspNetCore.Localization
+@using Microsoft.Extensions.Options
+@using PrintMood.Config
+
+@model PrintMood.Models.ViewModel
+
 @inject IViewLocalizer LocView
+@inject IOptions<LocalizationConfig> LocalizationOptions
 
 @{
     ViewData["Title"] = LocView["Printing on singlets, t-shirts and svitshots"];
+}
+
+@functions
+{
+    string WithLang(string url)
+    {
+        var requestCulture = Context.Features.Get<IRequestCultureFeature>();
+        return string.Compare(CultureInfo.CurrentUICulture.TwoLetterISOLanguageName, requestCulture.RequestCulture.UICulture.TwoLetterISOLanguageName, StringComparison.OrdinalIgnoreCase) == 0
+         ? url : CultureInfo.CurrentUICulture.TwoLetterISOLanguageName + "/" + url;
+    }
 }
 
 @section scripts
@@ -116,7 +134,7 @@
                         <div class="hexagon" style="float: right; margin-top:-20px">
                             <a href="#"> <span class="mask"></span><img src="~/images/trofimov.jpg" asp-append-version="true"  /> </a>
                             <div class="portfolio-title">
-                                <h4>Vladimir Trofimov<span>CEO and the Founder</span></h4>
+                                <h4>@LocView["Vladimir Trofimov"]<span>@LocView["CEO and the Founder"]</span></h4>
                             </div>
                         </div>
                     </div>
@@ -246,8 +264,8 @@
                         </p>
 
                         <div class="contact_wrap">
-                            <h3>Contact Form</h3>
-                            <form method="post" asp-controller="Home" asp-action="SendMail" id="passion_form">
+                            <h3>@LocView["Contact Form"]</h3>
+                            <form method="post" action='~/@WithLang("Home/SendMail")' id="passion_form">
 
                                 <div class="form-group">
                                     <span data-valmsg-for="Name" data-valmsg-replace="true"></span>

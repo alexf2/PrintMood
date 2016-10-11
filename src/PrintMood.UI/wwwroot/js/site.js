@@ -128,7 +128,7 @@
 
 
     /*contact    page    validator*/
-    //$("#passion_form").validate();	    
+    $("#passion_form").validate();	    
 })();
 
 function initGMap() {

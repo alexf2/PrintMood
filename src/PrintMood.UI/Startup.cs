@@ -65,6 +65,7 @@ namespace PrintMood
                 services
                     .AddOptions()
                     .Configure<MailConfig>(Configuration.GetSection("MainConfig:Mail"))                    
+                    .Configure<LocalizationConfig>(Configuration.GetSection("MainConfig:Localization"))
                     .AddLocalization(options => options.ResourcesPath = "Resources")
                 
                     .AddElm(opt =>
@@ -83,7 +84,7 @@ namespace PrintMood
 
                         opt.Filters.Add(new CultureSettingResourceFilter());
                     })
-                    .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix)
+                    .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix, opt => opt.ResourcesPath = "Resources")
                     .AddDataAnnotationsLocalization(opt => opt.DataAnnotationLocalizerProvider = (t, f) => f.Create(string.Join(".", t.Namespace.Split('.').Skip(1)) + "." + t.Name, null));
 
                 //Substitutes Json formatters rcognizing "idented" query string parameter
@@ -91,7 +92,7 @@ namespace PrintMood
                 
                 //services.AddScoped<LanguageActionFilter>();
 
-                services.AddSingleton<Shared>();                
+                services.AddSingleton<SharedResource>();                
 
                 services.Configure<RequestLocalizationOptions>(
                     options =>
