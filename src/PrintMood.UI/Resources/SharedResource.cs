@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Localization;
 using Microsoft.Extensions.Localization;
+using WebApiHelpers;
 
 namespace PrintMood
 {
@@ -8,7 +9,7 @@ namespace PrintMood
     /// Resource access helper for shared resources.
     /// Put SharedResource.XX.resx besides this file.
     /// </summary>
-    public sealed class SharedResource
+    public sealed class SharedResource: ISharedResource
     {
         readonly IStringLocalizerFactory _stringFac;
         readonly IHtmlLocalizerFactory _htmlFac;

@@ -92,7 +92,7 @@ namespace PrintMood
                 
                 //services.AddScoped<LanguageActionFilter>();
 
-                services.AddSingleton<SharedResource>();                
+                services.AddSingleton<ISharedResource, SharedResource>();
 
                 services.Configure<RequestLocalizationOptions>(
                     options =>

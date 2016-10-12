@@ -1,4 +1,6 @@
 ﻿@using System.Globalization
+@using System.Threading.Tasks
+@using Microsoft.AspNetCore.Localization
 
 @inject IViewLocalizer LocShared
 
@@ -82,7 +84,7 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="#top" title='@LocShared["Return to the first page"]'>@LocShared["Home"]</a></li>
                     <li><a href="#services" title='@LocShared["Print Mood who"]'>@LocShared["Who"]</a></li>
-                    <li><a href="#portfolio" title='@LocShared["Why people choose us"]'>@LocShared["Why"]</a></li>                    
+                    <li><a href="#portfolio" title='@LocShared["Why people choose us"]'>@LocShared["Why"]</a></li>
                     <li><a href="#order" title='@LocShared["Choose a shirt type, upload your print and order now"]'>@LocShared["Ordering"]</a></li>
                     <li><a href="#contact" title='@LocShared["Contact Us"]'>@LocShared["Contacts"]</a></li>
                 </ul>
@@ -123,13 +125,10 @@
         <script src="~/lib/pace/pace.js"></script>
         <script src="~/lib/jquery.nicescroll/dist/jquery.nicescroll.min.js"></script>
         <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
-        <script src="~/lib/jquery.validate.unobtrusive.js"></script>        
+        <script src="~/js/jquery.validate.unobtrusive.js"></script>
 
         <script src="~/lib/flexslider/jquery.flexslider.js"></script>
-        <script src="~/js/site.js" asp-append-version="true"></script>
-
-        <script src="~/lib/gmaps/gmaps.js"></script>
-        <script src="//maps.google.com/maps/api/js?key=AIzaSyDycDBp8bFUdi7068249K-9lgLZgWf7mko&callback=initGMap"></script><!--google map contact page-->        
+        <script src="~/js/site.js" asp-append-version="true"></script>        
     </environment>
 
     <environment names="Staging,Production">
@@ -159,29 +158,21 @@
                 asp-fallback-src="~/lib/jquery-validation/dist/jquery.validate.min.js"
                 asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.validate">
 
-        
+
         </script>
 
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.6/jquery.validate.unobtrusive.min.js"
-                asp-fallback-src="~/lib/jquery.validate.unobtrusive.min.js"
+                asp-fallback-src="~/js/jquery.validate.unobtrusive.min.js"
                 asp-fallback-test="window.jQuery && window.jQuery.validator && window.jQuery.validator.unobtrusive">
 
-        </script>        
+        </script>
 
         <script src="//cdnjs.cloudflare.com/ajax/libs/flexslider/2.6.0/jquery.flexslider.min.js"
                 asp-fallback-src="~/lib/flexslider/jquery.flexslider.js"
                 asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.flexslider">
         </script>
 
-        <script src="~/js/site.min.js" asp-append-version="true"></script>
-
-        <script src="//cdnjs.cloudflare.com/ajax/libs/gmaps.js/0.4.24/gmaps.min.js"
-                asp-fallback-src="~/lib/gmaps/gmaps.min.js"
-                asp-fallback-test="GMaps">
-
-        </script>
-
-        <script src="//maps.google.com/maps/api/js?key=AIzaSyDycDBp8bFUdi7068249K-9lgLZgWf7mko&callback=initGMap"></script><!--google map contact page-->        
+        <script src="~/js/site.min.js" asp-append-version="true"></script>        
     </environment>
 
     @RenderSection("scripts", required: false)

@@ -11,6 +11,7 @@ using PrintMood.RequestDTO;
 using PrintMood.Resources;
 using WebApiHelpers;
 using WebApiHelpers.Contracts;
+using WebApiHelpers.ReCaptcha;
 
 namespace PrintMood.Controllers
 {    
@@ -22,7 +23,7 @@ namespace PrintMood.Controllers
         readonly ISmtpServiceFactory _smtpFactory;
         readonly ILogger<HomeController> _logger;
 
-        public HomeController (ILoggerFactory loggerFactory, ISmtpServiceFactory smtpFactory, SharedResource sh)
+        public HomeController (ILoggerFactory loggerFactory, ISmtpServiceFactory smtpFactory, ISharedResource sh)
         {
             _smtpFactory = smtpFactory;
             _loc = sh.Localizer;
@@ -42,6 +43,8 @@ namespace PrintMood.Controllers
 
         [HttpPost]
         [InvalidModelStateFilter]
+        [ValidateAntiForgeryToken]
+        [ValidateRecaptcha]
         public async Task<IActionResult> SendMail( [FromForm] MailData md )
         {
             var mailService = _smtpFactory.Create(MailProfile);

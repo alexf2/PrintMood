@@ -3963,6 +3963,8 @@
           "MailKit": "1.8.1",
           "Microsoft.AspNetCore.Diagnostics": "1.0.0",
           "Microsoft.AspNetCore.Mvc.Formatters.Json": "1.0.0",
+          "Microsoft.AspNetCore.Mvc.Localization": "1.0.0",
+          "Microsoft.Extensions.Localization": "1.0.0",
           "NETStandard.Library": "1.6.0"
         },
         "compile": {

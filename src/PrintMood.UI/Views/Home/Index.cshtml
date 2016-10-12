@@ -21,14 +21,37 @@
         return string.Compare(CultureInfo.CurrentUICulture.TwoLetterISOLanguageName, requestCulture.RequestCulture.UICulture.TwoLetterISOLanguageName, StringComparison.OrdinalIgnoreCase) == 0
          ? url : CultureInfo.CurrentUICulture.TwoLetterISOLanguageName + "/" + url;
     }
+
+    string ReCaptchaLang()
+    {
+        var requestCulture = Context.Features.Get<IRequestCultureFeature>();
+        return string.Compare(CultureInfo.CurrentUICulture.TwoLetterISOLanguageName, requestCulture.RequestCulture.UICulture.TwoLetterISOLanguageName, StringComparison.OrdinalIgnoreCase) == 0
+         ? string.Empty : "&hl=" + CultureInfo.CurrentUICulture.TwoLetterISOLanguageName;
+    }
 }
 
 @section scripts
 {    
+    <environment names="Development">
+        <script src="~/lib/gmaps/gmaps.js"></script>
+        <script src="//maps.google.com/maps/api/js?key=AIzaSyDycDBp8bFUdi7068249K-9lgLZgWf7mko&callback=initGMap"></script><!--google map contact page-->
+        <script src="//www.google.com/recaptcha/api.js?render=onload@(ReCaptchaLang())" async defer></script>
+    </environment>
+    
+    <environment names="Staging,Production">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/gmaps.js/0.4.24/gmaps.min.js"
+                asp-fallback-src="~/lib/gmaps/gmaps.min.js"
+                asp-fallback-test="GMaps">
+
+        </script>
+
+        <script src="//maps.google.com/maps/api/js?key=AIzaSyDycDBp8bFUdi7068249K-9lgLZgWf7mko&callback=initGMap"></script><!--google map contact page-->
+        <script src="//www.google.com/recaptcha/api.js?render=onload(@ReCaptchaLang())" async defer></script>
+    </environment>
 }
 
-@section css 
-{   
+@section css
+{
 }
 
 @Html.Hidden("texts.prev", @LocView["Previous"].Value)
@@ -69,7 +92,7 @@
                 <div class="container TitleSection">
                     <header class="page-head">
                         <h1>
-                            @LocView["Who we <small> are</small>"]                            
+                            @LocView["Who we <small> are</small>"]
                         </h1>
                     </header>
                 </div>
@@ -84,7 +107,8 @@
                         <div class="col-xs-12 col-md-4 col-sm-6">
                             <ul>
                                 <li>
-                                    <div class="icon_ser"><i class="fa fa-briefcase"></i>
+                                    <div class="icon_ser">
+                                        <i class="fa fa-briefcase"></i>
                                     </div>
                                     <div class="wrap">
                                         <h3>Print your pictures</h3>
@@ -92,7 +116,8 @@
                                     </div>
                                 </li>
                                 <li>
-                                    <div class="icon_ser"><i class="fa fa-camera"></i>
+                                    <div class="icon_ser">
+                                        <i class="fa fa-camera"></i>
                                     </div>
                                     <div class="wrap">
                                         <h3>Deliver orders</h3>
@@ -103,13 +128,14 @@
                         </div>
 
                         <div class="col-md-4 hidden-xs hidden-sm">
-                            <img src="~/images/TradeMark.gif" alt="slider" asp-append-version="true" style="max-width: 500px; width: 100%; height: auto;"/>
+                            <img src="~/images/TradeMark.gif" alt="slider" asp-append-version="true" style="max-width: 500px; width: 100%; height: auto;" />
                         </div>
 
                         <div class="col-xs-12 col-md-4 col-sm-6">
                             <ul>
                                 <li>
-                                    <div class="icon_ser icon_ser-right"><i class="fa fa-comments"></i>
+                                    <div class="icon_ser icon_ser-right">
+                                        <i class="fa fa-comments"></i>
                                     </div>
                                     <div class="wrap wrap-right">
                                         <h3>Design amazing prints</h3>
@@ -117,7 +143,8 @@
                                     </div>
                                 </li>
                                 <li>
-                                    <div class="icon_ser icon_ser-right"><i class="fa fa-dashboard"></i>
+                                    <div class="icon_ser icon_ser-right">
+                                        <i class="fa fa-dashboard"></i>
                                     </div>
                                     <div class="wrap wrap-right">
                                         <h3>Supply bulks</h3>
@@ -132,7 +159,7 @@
                 <div class="row">
                     <div class="about_wrap_one">
                         <div class="hexagon" style="float: right; margin-top:-20px">
-                            <a href="#"> <span class="mask"></span><img src="~/images/trofimov.jpg" asp-append-version="true"  /> </a>
+                            <a href="#"> <span class="mask"></span><img src="~/images/trofimov.jpg" asp-append-version="true" /> </a>
                             <div class="portfolio-title">
                                 <h4>@LocView["Vladimir Trofimov"]<span>@LocView["CEO and the Founder"]</span></h4>
                             </div>
@@ -168,7 +195,8 @@
                         <div class="col-xs-12 col-md-3 col-sm-12">
                             <ul>
                                 <li>
-                                    <div class="icon_ser"><i class="fa fa-globe"></i>
+                                    <div class="icon_ser">
+                                        <i class="fa fa-globe"></i>
                                     </div>
                                     <div class="wrap">
                                         <h3>Creative artistic prints</h3>
@@ -216,7 +244,7 @@
 
             </div>
         </div>
-    </div>    
+    </div>
 </div>
 <!-- Portfolio -->
 <!-- Ordering -->
@@ -237,7 +265,7 @@
                 </div>
             </div>
         </div>
-    </div>    
+    </div>
 </div>
 <!-- Ordering -->
 <!--Contact -->
@@ -265,13 +293,13 @@
 
                         <div class="contact_wrap">
                             <h3>@LocView["Contact Form"]</h3>
-                            <form method="post" action='~/@WithLang("Home/SendMail")' id="passion_form">
+                            <form method="post" action='~/@WithLang("Home/SendMail")' id="passion_form" asp-antiforgery="true">
 
                                 <div class="form-group">
                                     <span data-valmsg-for="Name" data-valmsg-replace="true"></span>
                                     <div>
                                         <i class="fa fa-asterisk required2" aria-hidden="true"></i>
-                                        <input asp-for="MailData.Name" name="Name" id="Name" size="50" class="form-control required" placeholder="@LocView["Your Name*"]"/>
+                                        <input asp-for="MailData.Name" name="Name" id="Name" size="50" class="form-control required" placeholder="@LocView["Your Name*"]" />
                                     </div>
                                 </div>
 
@@ -279,12 +307,12 @@
                                     <span data-valmsg-for="Email" data-valmsg-replace="true"></span>
                                     <div>
                                         <i class="fa fa-asterisk required2" aria-hidden="true"></i>
-                                        <input asp-for="MailData.Email" size="50" name="Email" id="Email" class="form-control required email" placeholder="@LocView["Enter Email*"]"/>
+                                        <input asp-for="MailData.Email" size="50" name="Email" id="Email" class="form-control required email" placeholder="@LocView["Enter Email*"]" />
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <input asp-for="MailData.SiteUrl" size="50" name="SiteUrl" id="SiteUrl" class="form-control" placeholder="Website"/>
+                                    <input asp-for="MailData.SiteUrl" size="50" name="SiteUrl" id="SiteUrl" class="form-control" placeholder="Website" />
                                 </div>
 
                                 <div class="form-group">
@@ -294,7 +322,11 @@
                                         <textarea asp-for="MailData.Message" class="form-control required" rows="6" name="Message" id="Message" placeholder="@LocView["Your Message*"]"></textarea>
                                     </div>
                                 </div>
-                                <button type="submit" class="btn btn-default">@LocView["Send Message"]</button>
+
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-default">@LocView["Send Message"]</button>
+                                    <div id="ContactCaptcha" class="g-recaptcha pull-right" data-sitekey="6Ldu_QgUAAAAAPFY6yQOtbH1sLN0ABHcZy9rb_hw" data-theme="dark" data-size="normal"></div>
+                                </div>
                             </form>
                         </div>
                     </div>
@@ -323,6 +355,6 @@
 
             </div>
         </div>
-    </div>    
+    </div>
 </div>
 <!--Contact -->
