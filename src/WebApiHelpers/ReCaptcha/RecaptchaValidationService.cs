@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Localization;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
+using WebApiHelpers.Contracts;
 
 namespace WebApiHelpers.ReCaptcha
 {
@@ -25,6 +25,10 @@ namespace WebApiHelpers.ReCaptcha
             _options.SecretKey.CheckMandatoryOption(nameof(_options.SecretKey));
             _options.ValidationMessage.CheckMandatoryOption(nameof(_options.ValidationMessage));
             _loc = sr.Localizer;
+            _backChannel = new HttpClient(_options.BackchannelHttpHandler ?? new HttpClientHandler())
+            {
+                Timeout = _options.BackchannelTimeout
+            };
         }
 
         public string ValidationMessage => _loc[ _options.ValidationMessage ].Value;
@@ -52,7 +56,7 @@ namespace WebApiHelpers.ReCaptcha
             }
         }
 
-        private string GetErrrorMessage(RecaptchaValidationResponse validationResponse, out bool invalidResponse)
+        private string GetErrrorMessage (RecaptchaValidationResponse validationResponse, out bool invalidResponse)
         {
             var errorList = new List<string>();
             invalidResponse = false;
@@ -64,28 +68,28 @@ namespace WebApiHelpers.ReCaptcha
                     switch (error)
                     {
                         case "missing-input-secret":
-                            errorList.Add(Microsoft.Extensions.Options.Resources.ValidateError_MissingInputSecret);
+                            errorList.Add(_loc["The secret parameter is missing"].Value);
                             break;
                         case "invalid-input-secret":
-                            errorList.Add(Microsoft.Extensions.Options.Resources.ValidateError_InvalidInputSecret);
+                            errorList.Add(_loc["The secret parameter is invalid or malformed"].Value);
                             break;
                         case "missing-input-response":
-                            errorList.Add(Microsoft.Extensions.Options.Resources.ValidateError_MissingInputResponse);
+                            errorList.Add(_loc["The response parameter is missing"].Value);
                             invalidResponse = true;
                             break;
                         case "invalid-input-response":
-                            errorList.Add(Microsoft.Extensions.Options.Resources.ValidateError_InvalidInputResponse);
+                            errorList.Add(_loc["The response parameter is invalid or malformed"].Value);
                             invalidResponse = true;
                             break;
                         default:
-                            errorList.Add(string.Format(Microsoft.Extensions.Options.Resources.ValidateError_Unknown, error));
+                            errorList.Add(_loc["Unknown Google ReCaptcha error '{0}'", error]);
                             break;
                     }
                 }
             }
             else
             {
-                return Microsoft.Extensions.Options.Resources.ValidateError_UnspecifiedRemoteServerError;
+                return _loc["Unspecified Google ReCaptcha remote server error"];
             }
 
             return string.Join(Environment.NewLine, errorList);

@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace WebApiHelpers.ReCaptcha
+namespace WebApiHelpers.Contracts
 {
     public interface IRecaptchaValidationService
     {

@@ -42,7 +42,7 @@ namespace WebApiHelpers
             await WriteExceptionAsync(context, exception, HttpStatusCode.InternalServerError).ConfigureAwait(false);
         }
 
-        public static async Task WriteExceptionAsync(HttpContext context, Exception exception, HttpStatusCode code)
+        static async Task WriteExceptionAsync(HttpContext context, Exception exception, HttpStatusCode code)
         {
             var response = context.Response;
             response.ContentType = "application/json";

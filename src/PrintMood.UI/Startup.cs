@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using System.Net;
@@ -17,12 +16,11 @@ using Microsoft.AspNetCore.Mvc.Formatters;
 using WebApiHelpers;
 using Microsoft.AspNetCore.Mvc.Internal;
 using Microsoft.AspNetCore.Mvc.Razor;
-using Microsoft.Extensions.Localization;
 using Microsoft.Extensions.Options;
 using Microsoft.Extensions.Primitives;
 using PrintMood.Config;
-using PrintMood.Resources;
 using WebApiHelpers.Contracts;
+using WebApiHelpers.ReCaptcha;
 
 namespace PrintMood
 {
@@ -64,8 +62,7 @@ namespace PrintMood
             {                
                 services
                     .AddOptions()
-                    .Configure<MailConfig>(Configuration.GetSection("MainConfig:Mail"))                    
-                    .Configure<LocalizationConfig>(Configuration.GetSection("MainConfig:Localization"))
+                    .ConfigurePrintMoodApp(Configuration) //adding configuration sections
                     .AddLocalization(options => options.ResourcesPath = "Resources")
                 
                     .AddElm(opt =>
@@ -88,17 +85,14 @@ namespace PrintMood
                     .AddDataAnnotationsLocalization(opt => opt.DataAnnotationLocalizerProvider = (t, f) => f.Create(string.Join(".", t.Namespace.Split('.').Skip(1)) + "." + t.Name, null));
 
                 //Substitutes Json formatters rcognizing "idented" query string parameter
-                services.Replace(ServiceDescriptor.Singleton<ObjectResultExecutor, ObjectResultExecutorWithIndent>());                
-                
-                //services.AddScoped<LanguageActionFilter>();
+                services.Replace(ServiceDescriptor.Singleton<ObjectResultExecutor, ObjectResultExecutorWithIndent>());                                               
 
                 services.AddSingleton<ISharedResource, SharedResource>();
 
                 services.Configure<RequestLocalizationOptions>(
                     options =>
                     {
-                        var confTmp =
-                            new ConfigureFromConfigurationOptions<LocalizationConfig>(Configuration.GetSection("MainConfig:Localization"));                       
+                        var confTmp = new ConfigureFromConfigurationOptions<LocalizationConfig>(Configuration.GetSection("MainConfig:Localization"));
 
                         var localeConfig = new LocalizationConfig();
                         confTmp.Configure(localeConfig);                        
@@ -110,7 +104,9 @@ namespace PrintMood
                         options.SupportedUICultures = supportedCultures;
                     });
 
-                services.AddSingleton<ISmtpServiceFactory, SmtpServiceFactory>();
+                services
+                    .AddSingleton<ISmtpServiceFactory, SmtpServiceFactory>()
+                    .AddRecaptcha();
             }
             catch (Exception ex)
             {

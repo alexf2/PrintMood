@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc.Localization;
 using Microsoft.Extensions.Localization;
 
-namespace WebApiHelpers
+namespace WebApiHelpers.Contracts
 {
     public interface ISharedResource
     {

@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc.Localization;
 using Microsoft.Extensions.Localization;
 using WebApiHelpers;
+using WebApiHelpers.Contracts;
 
 namespace PrintMood
 {

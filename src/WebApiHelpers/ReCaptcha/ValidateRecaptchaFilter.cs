@@ -3,11 +3,12 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Extensions.Localization;
+using WebApiHelpers.Contracts;
 
 
 namespace WebApiHelpers.ReCaptcha
 {
-    public class ValidateRecaptchaFilter : IAsyncAuthorizationFilter
+    public sealed class ValidateRecaptchaFilter : IAsyncAuthorizationFilter
     {
         const string  FormField = "g-recaptcha-response";
 
@@ -36,7 +37,7 @@ namespace WebApiHelpers.ReCaptcha
                 try
                 {
                     if (!context.HttpContext.Request.HasFormContentType)
-                        throw new RecaptchaValidationException($"Form data was not found in the POST request: {context.HttpContext.Request.ContentType}.", false);
+                        throw new RecaptchaValidationException(_loc["Form data was not found in the POST request: {0}", context.HttpContext.Request.ContentType].Value, false);
 
                     var form = await context.HttpContext.Request.ReadFormAsync();
                     var response = form[FormField];
