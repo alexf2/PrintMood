@@ -123,6 +123,12 @@
   <data name="Invalid validation code" xml:space="preserve">
     <value>Неправильный контрольный код</value>
   </data>
+  <data name="Posted form data possible contains malicious code in '{0}' field" xml:space="preserve">
+    <value>Данные формы возможно содержат вредоносный код в поле '{0}'</value>
+  </data>
+  <data name="Query string possible contains malicious code" xml:space="preserve">
+    <value>Строка запроса возможно содержет вредоносный код</value>
+  </data>
   <data name="The response parameter is invalid or malformed" xml:space="preserve">
     <value>Неправильный код ответа пользователя</value>
   </data>

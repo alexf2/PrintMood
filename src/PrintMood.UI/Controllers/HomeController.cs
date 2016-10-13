@@ -12,6 +12,7 @@ using PrintMood.Resources;
 using WebApiHelpers;
 using WebApiHelpers.Contracts;
 using WebApiHelpers.ReCaptcha;
+using WebApiHelpers.XSS;
 
 namespace PrintMood.Controllers
 {    
@@ -45,6 +46,7 @@ namespace PrintMood.Controllers
         [InvalidModelStateFilter]
         [ValidateAntiForgeryToken]
         [ValidateRecaptcha]
+        [ValidateRequestXss]
         public async Task<IActionResult> SendMail( [FromForm] MailData md )
         {
             var mailService = _smtpFactory.Create(MailProfile);

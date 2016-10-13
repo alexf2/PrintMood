@@ -1,27 +1,33 @@
 ﻿using System;
+using System.Net;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Extensions.Localization;
+using Microsoft.Extensions.Logging;
 using WebApiHelpers.Contracts;
 
 
 namespace WebApiHelpers.ReCaptcha
 {
-    public sealed class ValidateRecaptchaFilter : IAsyncAuthorizationFilter
+    public sealed class ValidateRecaptchaFilter : IAsyncAuthorizationFilter, IOrderedFilter
     {
         const string  FormField = "g-recaptcha-response";
 
         readonly IRecaptchaValidationService _service;
         readonly IStringLocalizer _loc;
+        readonly ILogger<ValidateRecaptchaFilter> _logger;
 
-        public ValidateRecaptchaFilter(IRecaptchaValidationService service, ISharedResource sr)
+        public int Order => int.MinValue + 2;
+
+        public ValidateRecaptchaFilter(IRecaptchaValidationService service, ISharedResource sr, ILoggerFactory logFac)
         {
             service.CheckArgumentNull(nameof(service));
             sr.CheckArgumentNull(nameof(sr));
 
             _service = service;
             _loc = sr.Localizer;
+            _logger = logFac.CreateLogger<ValidateRecaptchaFilter>();
         }
 
         /// <inheritdoc />
@@ -61,7 +67,13 @@ namespace WebApiHelpers.ReCaptcha
                     }
                     else
                     {
-                        context.Result = new BadRequestResult();
+                        _logger.LogError(new EventId(1, context.HttpContext.TraceIdentifier), ex, "At validating captcha");
+                        context.Result = new BadRequestObjectResult(new ErrorResponseDto()
+                        {
+                            Message = ex.Message,                            
+                            CorrelationId = context.HttpContext.TraceIdentifier,
+                            HttpCode = (int)HttpStatusCode.BadRequest
+                        });
                     }
                 }
             }

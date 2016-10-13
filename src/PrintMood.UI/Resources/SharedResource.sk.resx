@@ -123,6 +123,12 @@
   <data name="Invalid validation code" xml:space="preserve">
     <value>Neplatný overovací kód</value>
   </data>
+  <data name="Posted form data possible contains malicious code in '{0}' field" xml:space="preserve">
+    <value>Možno dát z formulára obsahuje škodlivý kód v '{0}' pole</value>
+  </data>
+  <data name="Query string possible contains malicious code" xml:space="preserve">
+    <value>Možné Reťazec dotazu obsahuje škodlivý kód</value>
+  </data>
   <data name="The response parameter is invalid or malformed" xml:space="preserve">
     <value>Parameter odozvy je neplatná alebo zle zadané</value>
   </data>

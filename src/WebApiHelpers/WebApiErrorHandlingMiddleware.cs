@@ -47,16 +47,14 @@ namespace WebApiHelpers
             var response = context.Response;
             response.ContentType = "application/json";
             response.StatusCode = (int)code;
-            await response.WriteAsync(JsonConvert.SerializeObject(new
-            {
-                error = new
+            await response.WriteAsync(
+                new ErrorResponseDto()
                 {
-                    message = exception.Message,
-                    exception = exception.GetType().Name,
-                    correlationId = context.TraceIdentifier,
-                    httpCode = (int)code
-                }
-            })).ConfigureAwait(false);
+                    Message = exception.Message,
+                    Exception = exception.GetType().Name,
+                    CorrelationId = context.TraceIdentifier,
+                    HttpCode = (int)code
+                }.Serialize()).ConfigureAwait(false);
         }
 
         public static IApplicationBuilder UseWebApiJsonErrorResponse (IApplicationBuilder bld)

@@ -21,6 +21,7 @@ using Microsoft.Extensions.Primitives;
 using PrintMood.Config;
 using WebApiHelpers.Contracts;
 using WebApiHelpers.ReCaptcha;
+using WebApiHelpers.XSS;
 
 namespace PrintMood
 {
@@ -79,6 +80,8 @@ namespace PrintMood
                         opt.OutputFormatters.Insert(0, new JsonIdentedFormatter());
                         opt.OutputFormatters.Insert(0, new JsonDefaultFormatter());
 
+                        //add two localization filers to apply the locatlization for other filers and for views/controllers
+                        opt.Filters.Add(new CultureSettingAuthFilter());
                         opt.Filters.Add(new CultureSettingResourceFilter());
                     })
                     .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix, opt => opt.ResourcesPath = "Resources")
@@ -106,7 +109,8 @@ namespace PrintMood
 
                 services
                     .AddSingleton<ISmtpServiceFactory, SmtpServiceFactory>()
-                    .AddRecaptcha();
+                    .AddRecaptcha()
+                    .AddXssValidation();
             }
             catch (Exception ex)
             {
