@@ -22,4 +22,9 @@
     <DnxInvisibleContent Include=".bowerrc" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\DotNet.Web\Microsoft.DotNet.Web.targets" Condition="'$(VSToolsPath)' != ''" />
+
+  <Target Name="BeforeBuild">
+    <Exec Command="gulp $(Configuration)" />
+  </Target>
+  
 </Project>

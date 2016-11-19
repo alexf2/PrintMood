@@ -1,5 +1,4 @@
-﻿/// <binding BeforeBuild='deploy' Clean='clean' />
-/*
+﻿/*
 This file in the main entry point for defining Gulp tasks and using Gulp plugins.
 Click here to learn more. http://go.microsoft.com/fwlink/?LinkId=518007
 */
@@ -13,7 +12,9 @@ var gulp = require("gulp"),
     uglify = require("gulp-uglify"),
     rename = require("gulp-rename"),
     sourcemaps = require('gulp-sourcemaps'),
-    plumber = require('gulp-plumber');    
+    plumber = require('gulp-plumber'),
+    autoprefixer = require('gulp-autoprefixer'),
+    gulpSequence = require('gulp-sequence');
 
 var paths = {
     webroot: "./wwwroot/"
@@ -21,10 +22,12 @@ var paths = {
 
 paths.js = paths.webroot + "js/**/*.js";
 paths.minJs = paths.webroot + "js/**/*.min.js";
-paths.css = paths.webroot + "css/**/*.css";
+paths.css = paths.webroot + "css/{site.css,pace.css}";
 paths.minCss = paths.webroot + "css/**/*.min.css";
 paths.concatJsDest = paths.webroot + "js/site.min.js";
-paths.concatCssDest = paths.webroot + "css/site.min.css";
+paths.concatCssDestMin = paths.webroot + "css/cssbundle.min.css";
+paths.concatCssDest = paths.webroot + "css/cssbundle.css";
+paths.allCssBundles = paths.webroot + "css/cssbundle.*";
 paths.bower = './bower_components/';
 paths.lib = './' + paths.webroot + 'lib/';
 
@@ -33,8 +36,8 @@ gulp.task("clean:js", function (cb) {
     rimraf(paths.concatJsDest, cb);
 });
 
-gulp.task("clean:css", function (cb) {
-    rimraf(paths.concatCssDest, cb);
+gulp.task("clean:css", function (cb) { 
+    rimraf(paths.allCssBundles, cb);
 });
 
 gulp.task("clean:lib", function (cb) {
@@ -56,8 +59,19 @@ gulp.task("min:js", function () {
 gulp.task("min:css", function () {
     return gulp.src([paths.css, "!" + paths.minCss], {base: "." })
       .pipe(plumber())
-      .pipe(concat(paths.concatCssDest))
+      .pipe(sourcemaps.init())
+      .pipe(autoprefixer())
+      .pipe(concat(paths.concatCssDestMin))
       .pipe(cssmin())
+      .pipe(sourcemaps.write('.'))
+      .pipe(gulp.dest("."));
+});
+
+gulp.task("regular:css", function () {
+    return gulp.src([paths.css, "!" + paths.minCss], { base: "." })
+      .pipe(plumber())      
+      .pipe(autoprefixer())
+      .pipe(concat(paths.concatCssDest))            
       .pipe(gulp.dest("."));
 });
 
@@ -77,8 +91,8 @@ gulp.task("copy:bower", function () {
             paths.bower + "jquery.nicescroll/dist/*",
             paths.bower + "pace/*.js",
             paths.bower + "respond/dest/respond.min.js",
-            paths.bower + "respond/dest/respond.src.js",
-            paths.bower + "*.{css,js}"
+            paths.bower + "respond/dest/respond.src.js"
+            //paths.bower + "*.{css,js}"
     ], { base: paths.bower })
 
             .pipe(gulp.dest(paths.lib));
@@ -92,4 +106,9 @@ gulp.task("copy:bower", function () {
       .pipe(gulp.dest("."));
 });*/
 
-gulp.task("deploy", ["min:js", "min:css", "copy:bower"]);
+//gulp.task("deploy", ["min:js", "min:css", "copy:bower"]);
+
+
+gulp.task("Debug", gulpSequence("clean", "regular:css"));
+gulp.task("Release", gulpSequence("clean", "min:js", "min:css", "copy:bower"));
+

@@ -11,7 +11,7 @@ namespace WebApiHelpers.ReCaptcha
 {
     public sealed class RecaptchaValidationService: IRecaptchaValidationService
     {
-        readonly HttpClient _backChannel;
+        readonly HttpClient _backChannel; 
         readonly RecaptchaOptions _options;
         readonly IStringLocalizer _loc;
 
@@ -19,7 +19,7 @@ namespace WebApiHelpers.ReCaptcha
         {
             options.CheckArgumentNull(nameof(options));
             sr.CheckArgumentNull(nameof(sr));
-
+             
             _options = options.Value;
             _options.ResponseValidationEndpoint.CheckMandatoryOption(nameof(_options.ResponseValidationEndpoint));            
             _options.SecretKey.CheckMandatoryOption(nameof(_options.SecretKey));
