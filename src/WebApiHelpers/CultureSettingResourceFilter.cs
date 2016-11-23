@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc.Filters;
+using WebApiHelpers.Contracts;
 
 namespace WebApiHelpers
 {    
@@ -12,7 +13,7 @@ namespace WebApiHelpers
 
         public void OnResourceExecuting(ResourceExecutingContext context)        
         {
-            CultureSetterUtil.SetCulture(context.HttpContext);
+            CultureSetterUtilBase.SetCultureStatic(context.HttpContext);
         }
     }
 }

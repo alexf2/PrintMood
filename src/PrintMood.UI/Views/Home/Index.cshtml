@@ -291,7 +291,7 @@
                             <strong>Phone General Inquiries: 1-234-567-8910-1234</strong>
                         </p>
 
-                        <div class="contact_wrap">
+                        <div class="contact_wrap">                            
                             <h3>@LocView["Contact Form"]</h3>
                             <form method="post" action='~/@WithLang("Home/SendMail")' id="passion_form" asp-antiforgery="true">
 
@@ -299,7 +299,7 @@
                                     <span data-valmsg-for="Name" data-valmsg-replace="true"></span>
                                     <div>
                                         <i class="fa fa-asterisk required2" aria-hidden="true"></i>
-                                        <input asp-for="MailData.Name" name="Name" id="Name" size="50" class="form-control required" placeholder="@LocView["Your Name*"]" />
+                                        <input asp-for="MailData.Name" name="Name" id="Name" size="50" class="form-control required" placeholder="@LocView["Your Name*"]"/>
                                     </div>
                                 </div>
 
@@ -307,12 +307,12 @@
                                     <span data-valmsg-for="Email" data-valmsg-replace="true"></span>
                                     <div>
                                         <i class="fa fa-asterisk required2" aria-hidden="true"></i>
-                                        <input asp-for="MailData.Email" size="50" name="Email" id="Email" class="form-control required email" placeholder="@LocView["Enter Email*"]" />
+                                        <input asp-for="MailData.Email" size="50" name="Email" id="Email" class="form-control required email" placeholder="@LocView["Enter Email*"]"/>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <input asp-for="MailData.SiteUrl" size="50" name="SiteUrl" id="SiteUrl" class="form-control" placeholder="Website" />
+                                    <input asp-for="MailData.SiteUrl" size="50" name="SiteUrl" id="SiteUrl" class="form-control" placeholder="Website"/>
                                 </div>
 
                                 <div class="form-group">
@@ -325,7 +325,9 @@
 
                                 <div class="form-group">
                                     <button type="submit" class="btn btn-default">@LocView["Send Message"]</button>
-                                    <div id="ContactCaptcha" class="g-recaptcha pull-right" data-sitekey="6Ldu_QgUAAAAAPFY6yQOtbH1sLN0ABHcZy9rb_hw" data-theme="dark" data-size="normal"></div>
+                                    <div class="recaptcha-wrap pull-right">
+                                        <div id="ContactCaptcha" class="g-recaptcha" data-sitekey="6Ldu_QgUAAAAAPFY6yQOtbH1sLN0ABHcZy9rb_hw" data-theme="dark" data-size="normal"></div>
+                                    </div>
                                 </div>
                             </form>
                         </div>

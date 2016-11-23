@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
 using System.Net;
 using System.Runtime.ExceptionServices;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Localization;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -72,45 +70,52 @@ namespace PrintMood
                         opt.Filter = (name, level) => level >= LogLevel.Error;
                     });
 
+
+                //Substitutes Json formatters rcognizing "idented" query string parameter
+                services.Replace(ServiceDescriptor.Singleton<ObjectResultExecutor, ObjectResultExecutorWithIndent>());
+
+
+                /*services.Configure<RequestLocalizationOptions>(
+                    options =>
+                    {
+                        //http://andrewlock.net/access-services-inside-options-and-startup-using-configureoptions/
+                        //Left as is: directly load 
+                        var confTmp = new ConfigureFromConfigurationOptions<LocalizationConfig>(Configuration.GetSection("MainConfig:Localization"));
+
+                        var localeConfig = new LocalizationConfig();
+                        confTmp.Configure(localeConfig);                        
+
+                        var supportedCultures = localeConfig.Locales.Select(loc => new CultureInfo(loc)).ToList();                        
+
+                        options.DefaultRequestCulture = new RequestCulture(culture: localeConfig.Default.General, uiCulture: localeConfig.Default.Ui);
+                        options.SupportedCultures = supportedCultures;
+                        options.SupportedUICultures = supportedCultures;
+                    });*/
+
+                services
+                    .AddSingleton<ICultureSetterUtil, CultureSetterUtil>()
+                    .AddSingleton<ISharedResource, SharedResource>() //is used to localize common strings
+                                                                     //http://andrewlock.net/access-services-inside-options-and-startup-using-configureoptions/
+                    .AddSingleton<IConfigureOptions<RequestLocalizationOptions>, ConfigureLocales>() //configures locales: DefaultRequestCulture, SupportedCultures, SupportedUICultures
+                    .AddSingleton<ISmtpServiceFactory, SmtpServiceFactory>()
+                    .AddSingleton<ValidateLocaleFilter>() //used for actions
+                    .AddRecaptcha()
+                    .AddXssValidation();
+
                 services.AddLogging()
                     .AddMvc(opt =>
                     {
                         opt.RespectBrowserAcceptHeader = true;
                         opt.OutputFormatters.RemoveType<JsonOutputFormatter>();
                         opt.OutputFormatters.Insert(0, new JsonIdentedFormatter());
-                        opt.OutputFormatters.Insert(0, new JsonDefaultFormatter());
+                        opt.OutputFormatters.Insert(0, new JsonDefaultFormatter());                        
 
                         //add two localization filers to apply the locatlization for other filers and for views/controllers
-                        opt.Filters.Add(new CultureSettingAuthFilter());
-                        opt.Filters.Add(new CultureSettingResourceFilter());
+                        //opt.Filters.Add(new CultureSettingAuthFilter());
+                        //opt.Filters.Add(new CultureSettingResourceFilter());
                     })
                     .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix, opt => opt.ResourcesPath = "Resources")
-                    .AddDataAnnotationsLocalization(opt => opt.DataAnnotationLocalizerProvider = (t, f) => f.Create(string.Join(".", t.Namespace.Split('.').Skip(1)) + "." + t.Name, null));
-
-                //Substitutes Json formatters rcognizing "idented" query string parameter
-                services.Replace(ServiceDescriptor.Singleton<ObjectResultExecutor, ObjectResultExecutorWithIndent>());                                               
-
-                services.AddSingleton<ISharedResource, SharedResource>();
-
-                services.Configure<RequestLocalizationOptions>(
-                    options =>
-                    {
-                        var confTmp = new ConfigureFromConfigurationOptions<LocalizationConfig>(Configuration.GetSection("MainConfig:Localization"));
-
-                        var localeConfig = new LocalizationConfig();
-                        confTmp.Configure(localeConfig);                        
-
-                        var supportedCultures = localeConfig.Locales.Select(loc => new CultureInfo(loc)).ToList();                                                   
-
-                        options.DefaultRequestCulture = new RequestCulture(culture: localeConfig.Default.General, uiCulture: localeConfig.Default.Ui);
-                        options.SupportedCultures = supportedCultures;
-                        options.SupportedUICultures = supportedCultures;
-                    });
-
-                services
-                    .AddSingleton<ISmtpServiceFactory, SmtpServiceFactory>()
-                    .AddRecaptcha()
-                    .AddXssValidation();
+                    .AddDataAnnotationsLocalization(opt => opt.DataAnnotationLocalizerProvider = (t, f) => f.Create(string.Join(".", t.Namespace.Split('.').Skip(1)) + "." + t.Name, null));                
             }
             catch (Exception ex)
             {

@@ -1,0 +1,48 @@
+﻿
+@using System.Threading.Tasks
+@using Microsoft.AspNetCore.Localization
+
+@model PrintMood.Config.LocalizationConfig
+
+@{
+    var requesFt = Context.Features.Get<IRequestCultureFeature>();
+    var currentCode = requesFt.RequestCulture.UICulture.TwoLetterISOLanguageName;
+    var currentLocale = Model.Locales.FirstOrDefault(loc => loc.Code == currentCode);
+    if (currentLocale == null)
+    {
+        currentLocale = Model.Locales.FirstOrDefault(loc => loc.Code == Model.Default.Ui);
+    }
+}
+
+<div class="lang-box-root">
+    <div class="lang-box">
+        <div class="icon-wrap">
+            <svg class="lang-flag">
+                <use xlink:href="#flag_@currentLocale.Code"></use>
+            </svg>
+            <span>@currentLocale.DisplayName</span>
+        </div>
+        <div class="arrow-wrap">
+            <svg class="lang-arrow">
+                <use xlink:href="#arrow-fat-bottom" class="lang-arrow-path"></use>
+            </svg>
+        </div>
+    </div>
+
+    <div class="lang-list" >
+        @foreach (var ci in Model.Locales)
+        {
+            if (!ci.Specific && ci.Code != currentCode)
+            {
+                <div>
+                    <a asp-controller="Home" asp-action="SetCulture" asp-route-culture="@ci.Code">
+                        <svg class="lang-flag">
+                            <use xlink:href="#flag_@ci.Code"></use>
+                        </svg>
+                        <span>@ci.DisplayName</span>
+                    </a>
+                </div>
+            }
+        }
+    </div>
+</div>

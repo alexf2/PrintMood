@@ -158,3 +158,36 @@ function initGMap() {
         infoWindow: { content: '<div class="google-marker"><strong>Print Mood</strong><p>82106 Slovakia, Bratislava, Pri trati, 25A</p></div>' }
     });
 };
+
+/*****language selector*****/
+(function ($) {
+    var $root = $('div.lang-box-root'),
+        $box = $root.find('div.lang-box'),
+        $panel = $root.find('div.lang-list');
+
+    $box.on('click.langHandler', function (e) {
+        $panel.slideToggle('slow').promise().then(function () { $box.toggleClass('lang-box-opened'); });
+        return false;
+    });
+
+    $box.on('selectstart.langHandler', function (e) {
+        e.stopPropagation();
+        e.preventDefault();
+    });
+
+    var close = function() {
+        $panel.slideUp('slowly').promise().then(function () { $box.removeClass('lang-box-opened'); });
+    }
+
+    $(document).on('click.langHandler', function (e) {
+
+        if ($panel.is(':visible') && $(e.target).closest('div.lang-box-root').length === 0)
+            close();
+
+    }).on('keyup.langHandler', function (e) {
+
+        if ($panel.is(':visible') && e.which === 27)
+            close();
+    });
+
+})(jQuery);

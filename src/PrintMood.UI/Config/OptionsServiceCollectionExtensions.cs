@@ -6,9 +6,12 @@ namespace PrintMood.Config
 {
     public static class OptionsServiceCollectionExtensions
     {
+        /// <summary>
+        /// Loads configuration sections
+        /// </summary>        
         public static IServiceCollection ConfigurePrintMoodApp (this IServiceCollection services, IConfigurationRoot conf)
         {
-            return 
+            return
                 services.Configure<MailConfig>(conf.GetSection("MainConfig:Mail"))
                     .Configure<LocalizationConfig>(conf.GetSection("MainConfig:Localization"))
                     .Configure<RecaptchaOptions>(conf.GetSection("MainConfig:Recaptcha"));

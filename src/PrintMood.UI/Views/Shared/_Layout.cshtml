@@ -72,24 +72,29 @@
 </head>
 
 <body data-spy="scroll" data-target="#ha-header">
-
+    @await Html.PartialAsync("_SvgLib")
     <!-- Fixed navbar -->
     <div class="navbar navbar-default navbar-fixed-top ha-header-small" id="ha-header">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-                <a class="navbar-brand logo" href="~/">PrintMood</a>
-            </div>
-            <div class="navbar-collapse collapse ">
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#top" title='@LocShared["Return to the first page"]'>@LocShared["Home"]</a></li>
-                    <li><a href="#services" title='@LocShared["Print Mood who"]'>@LocShared["Who"]</a></li>
-                    <li><a href="#portfolio" title='@LocShared["Why people choose us"]'>@LocShared["Why"]</a></li>
-                    <li><a href="#order" title='@LocShared["Choose a shirt type, upload your print and order now"]'>@LocShared["Ordering"]</a></li>
-                    <li><a href="#contact" title='@LocShared["Contact Us"]'>@LocShared["Contacts"]</a></li>
-                </ul>
-            </div>
-            <!--/.nav-collapse -->
+        <div class="container">            
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+                    <a class="navbar-brand logo" href="~/">PrintMood</a>
+                </div>
+                
+                <div class="navbar-collapse navbar-right ">
+                    @await Component.InvokeAsync("CultureSelector")
+                </div>
+
+                <div class="navbar-collapse navbar-right collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#top" title='@LocShared["Return to the first page"]'>@LocShared["Home"]</a></li>
+                        <li><a href="#services" title='@LocShared["Print Mood who"]'>@LocShared["Who"]</a></li>
+                        <li><a href="#portfolio" title='@LocShared["Why people choose us"]'>@LocShared["Why"]</a></li>
+                        <li><a href="#order" title='@LocShared["Choose a shirt type, upload your print and order now"]'>@LocShared["Ordering"]</a></li>
+                        <li><a href="#contact" title='@LocShared["Contact Us"]'>@LocShared["Contacts"]</a></li>
+                    </ul>
+                </div>
+                <!--/.nav-collapse -->                            
         </div>
     </div>
     <!-- End Fixed navbar -->

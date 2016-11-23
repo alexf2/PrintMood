@@ -1,4 +1,5 @@
-﻿using System.Globalization;
+﻿using System;
+using System.Globalization;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 #if NET451 || NET46
@@ -6,16 +7,38 @@ using Microsoft.AspNetCore.Http;
 #endif
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Routing;
+using Microsoft.Extensions.Globalization;
+using WebApiHelpers.Contracts;
 
 namespace WebApiHelpers
-{
-    public static class CultureSetterUtil
+{    
+    public abstract class CultureSetterUtilBase: ICultureSetterUtil
     {
         const string ROUTE_CILTURE = "culture";
 
-        public static void SetCulture(HttpContext context)
+        protected abstract bool IsCultureValid (string code);
+        protected abstract string FallbackCulture { get; }
+
+        string ICultureSetterUtil.GetCulture(HttpContext context)
+        {            
+            if (context.Request.Path.HasValue)
+            {
+                var components = context.Request.Path.Value.Split(new char['/'], StringSplitOptions.RemoveEmptyEntries);
+                if (components.Length > 0)
+                {
+                    
+                    var comp = components[0].Trim().Replace("/", string.Empty);
+                    if (comp.Length == 2 && IsCultureValid(comp))
+                        return comp;
+                }                
+            }
+            return null;
+        }
+
+        static string GetCulture(HttpContext context) => context.GetRouteData().Values["lang"]?.ToString().Trim().ToLower();
+
+        static void SetCultureInternal(HttpContext context, string culture)
         {
-            var culture = context.GetRouteData().Values["lang"]?.ToString();
             if (culture != null)
             {
 
@@ -44,5 +67,16 @@ namespace WebApiHelpers
 #endif                                
             }
         }
+
+        public void SetCulture(HttpContext context)
+        {
+            var culture = GetCulture(context);
+            if (!IsCultureValid(culture))
+                culture = FallbackCulture;
+
+            SetCultureInternal(context, culture);
+        }
+
+        public static void SetCultureStatic(HttpContext context) => SetCultureInternal(context, GetCulture(context));        
     }
 }
