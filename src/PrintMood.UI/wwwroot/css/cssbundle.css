@@ -542,7 +542,7 @@ footer a { color: #EB5055 }
 .lang-box-root {
     position: relative;
     padding-left: 0.5em;
-    padding-top: 7px;    
+    padding-top: 4px;    
 }
 
 .lang-box {
@@ -550,7 +550,7 @@ footer a { color: #EB5055 }
     font-family: 'allerregular', 'Helvetica', 'Arial', 'sans-serif';
     font-weight: bold;
         
-    width: 9em;
+    width: 6em;
 
     height: 32px;
     border: 1px solid #757b89;
@@ -564,11 +564,11 @@ footer a { color: #EB5055 }
     display: table;    
     border-radius: 2px;
     -webkit-transition: border-color .3s ease;
-    transition: border-color .3s ease;     
+    transition: border-color .3s ease;         
 }
 
 .lang-box:hover, .lang-box-opened {
-    border-color: #cbcbcd;
+    border-color: #cbcbcd;    
 }
 
 .icon-wrap > span {
@@ -615,15 +615,16 @@ use.lang-arrow-path {
     background-color: #505461;
     padding: 0.2em;
     border: 1px solid #cbcbcd;
-    border-top: none;
+    
 
     position: absolute;
-    z-index: 9999;
-    display: none;    
+    z-index: 9999;    
+    display: none;
+    margin-top: 1px; 
 }
 
 .lang-list  a, .lang-list  a:hover {
-    color: #e5595c;
+    color: #f5696c;
 }
 
 .lang-list > div {    
@@ -652,8 +653,7 @@ use.lang-arrow-path {
 
 .ajax-loader {
     cursor: wait;
-    background:#eeeedd url('../images/ajax-loader.gif') no-repeat center center;
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=75)";
+    background:#eeeedd url('../images/ajax-loader.gif') no-repeat center center;    
     filter: alpha(opacity=75);
     opacity: 0.75;
     position: absolute;
@@ -682,6 +682,16 @@ use.lang-arrow-path {
     font-size:10px;
     color:#ccc;
 }
+
+.alert-danger { 
+    background-color: #f28e7e;
+    border-color: #eb7c71;   
+}
+.alert-success {    
+    background-color: #afd098;
+    border-color: #86b986;
+}
+
 
 /* ==========================================================
                        Pace progress bar styles: http://github.hubspot.com/pace/docs/welcome/

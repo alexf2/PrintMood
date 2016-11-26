@@ -20,7 +20,7 @@
             <svg class="lang-flag">
                 <use xlink:href="#flag_@currentLocale.Code"></use>
             </svg>
-            <span>@currentLocale.DisplayName</span>
+            <span>@currentLocale.Code.ToUpper()</span>
         </div>
         <div class="arrow-wrap">
             <svg class="lang-arrow">
@@ -36,7 +36,7 @@
             {
                 <div>
                     <a asp-controller="Home" asp-action="SetCulture" asp-route-culture="@ci.Code">
-                        <svg class="lang-flag">
+                        <svg class="lang-flag" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                             <use xlink:href="#flag_@ci.Code"></use>
                         </svg>
                         <span>@ci.DisplayName</span>

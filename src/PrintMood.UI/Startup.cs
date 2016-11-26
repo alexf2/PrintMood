@@ -187,18 +187,18 @@ namespace PrintMood
                     .UseMvc(routes =>
                     {
                         routes.MapRoute(
-                            name: "default",
-                            template: "{controller=Root}/{action=Get}",
+                            name: "default-api",
+                            template: "{controller=Root}/{action=Get}/{id?}",
                             defaults: null,
                             constraints: null,
                             dataTokens: new {Namespace = typeof (PrintMood.ApiControllers.RootController).Namespace})
 
                             .MapRoute(
-                                name: "RpcRoute",
-                                template: "{controller}/{action}/{name?}",
+                                name: "withlang-api",
+                                template: "{lang=en}/{controller=Root}/{action=Get}/{id?}",
                                 defaults: null,
-                                constraints: null,
-                                dataTokens: new {Namespace = typeof (PrintMood.ApiControllers.RootController).Namespace});
+                                constraints: new { lang = "en|ru|sk" },
+                                dataTokens: new { Namespace = typeof(PrintMood.ApiControllers.RootController).Namespace });
                     });
             });            
         }

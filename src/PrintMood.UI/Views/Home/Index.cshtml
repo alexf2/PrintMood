@@ -1,4 +1,5 @@
-﻿@using System.Globalization
+﻿@using System.Collections.Concurrent
+@using System.Globalization
 @using System.Threading.Tasks
 @using Microsoft.AspNetCore.Localization
 @using Microsoft.Extensions.Options
@@ -22,11 +23,18 @@
          ? url : CultureInfo.CurrentUICulture.TwoLetterISOLanguageName + "/" + url;
     }
 
-    string ReCaptchaLang()
+    string ReCaptchaQuery()
     {
         var requestCulture = Context.Features.Get<IRequestCultureFeature>();
-        return string.Compare(CultureInfo.CurrentUICulture.TwoLetterISOLanguageName, requestCulture.RequestCulture.UICulture.TwoLetterISOLanguageName, StringComparison.OrdinalIgnoreCase) == 0
-         ? string.Empty : "&hl=" + CultureInfo.CurrentUICulture.TwoLetterISOLanguageName;
+
+        var queryDic = new Dictionary<string, string>();
+        if (string.Compare(CultureInfo.CurrentUICulture.TwoLetterISOLanguageName, requestCulture.RequestCulture.UICulture.TwoLetterISOLanguageName, StringComparison.OrdinalIgnoreCase) != 0)
+            queryDic["hl"] = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName;
+
+        queryDic["render"] = "explicit";
+        queryDic["onload"] = "initRecaptcha";
+
+        return Microsoft.AspNetCore.WebUtilities.QueryHelpers.AddQueryString(string.Empty, queryDic);
     }
 }
 
@@ -35,7 +43,7 @@
     <environment names="Development">
         <script src="~/lib/gmaps/gmaps.js"></script>
         <script src="//maps.google.com/maps/api/js?key=AIzaSyDycDBp8bFUdi7068249K-9lgLZgWf7mko&callback=initGMap"></script><!--google map contact page-->
-        <script src="//www.google.com/recaptcha/api.js?render=onload@(ReCaptchaLang())" async defer></script>
+        <script src="//www.google.com/recaptcha/api.js@(ReCaptchaQuery())" async defer></script>
     </environment>
     
     <environment names="Staging,Production">
@@ -46,7 +54,7 @@
         </script>
 
         <script src="//maps.google.com/maps/api/js?key=AIzaSyDycDBp8bFUdi7068249K-9lgLZgWf7mko&callback=initGMap"></script><!--google map contact page-->
-        <script src="//www.google.com/recaptcha/api.js?render=onload(@ReCaptchaLang())" async defer></script>
+        <script src="//www.google.com/recaptcha/api.js(@ReCaptchaQuery())" async defer></script>
     </environment>
 }
 
@@ -291,10 +299,9 @@
                             <strong>Phone General Inquiries: 1-234-567-8910-1234</strong>
                         </p>
 
-                        <div class="contact_wrap">                            
+                        <div id="contact_wrap" class="contact_wrap">                            
                             <h3>@LocView["Contact Form"]</h3>
-                            <form method="post" action='~/@WithLang("Home/SendMail")' id="passion_form" asp-antiforgery="true">
-
+                            <form method="post" action='~/@WithLang("api/Mail/SendMail")' id="contact_form" asp-antiforgery="true">
                                 <div class="form-group">
                                     <span data-valmsg-for="Name" data-valmsg-replace="true"></span>
                                     <div>
@@ -326,7 +333,7 @@
                                 <div class="form-group">
                                     <button type="submit" class="btn btn-default">@LocView["Send Message"]</button>
                                     <div class="recaptcha-wrap pull-right">
-                                        <div id="ContactCaptcha" class="g-recaptcha" data-sitekey="6Ldu_QgUAAAAAPFY6yQOtbH1sLN0ABHcZy9rb_hw" data-theme="dark" data-size="normal"></div>
+                                        <div id="ContactCaptcha" class="g-recaptcha"></div>
                                     </div>
                                 </div>
                             </form>

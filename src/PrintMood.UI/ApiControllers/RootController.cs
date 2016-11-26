@@ -3,6 +3,7 @@ using System.IO;
 using System.Reflection;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.PlatformAbstractions;
+using PrintMood.RequestDTO;
 using PrintMood.ResponseDTO;
 using WebApiHelpers;
 
@@ -10,13 +11,11 @@ using WebApiHelpers;
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace PrintMood.ApiControllers
-{
+{    
     public class RootController : Controller
     {
-        public RootController()
-        {            
-        }
-
+        public const string ControllerName = "Root";
+        
         /// <summary>
         /// Returns service information and version.
         /// </summary>
@@ -28,7 +27,13 @@ namespace PrintMood.ApiControllers
             {
                 ApplicationName = "PrintMood REST service",
                 ApiVersion = VersionHelpers.GetProductVersion(GetType().GetTypeInfo().Assembly),
-                Links = new { Self = Url.Link("default", null) }
+                Links = new
+                {
+                    Self = Url.Link("default-api", null),
+                    Hello = Url.Action("Hello", ControllerName, new {name = "world"}, Request.Scheme),
+                    SysInfo = Url.Action("SysInfo", ControllerName, null, Request.Scheme),
+                    SendMail = Url.Action("SendMail", MailController.ControllerName, new MailData(), Request.Scheme)
+                }
             });
         }
 
@@ -81,6 +86,6 @@ namespace PrintMood.ApiControllers
                 isLinux,
                 isMacOsX
             });
-        }
+        }        
     }
 }
