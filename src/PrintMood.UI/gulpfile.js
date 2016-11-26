@@ -111,4 +111,5 @@ gulp.task("copy:bower", function () {
 
 gulp.task("Debug", gulpSequence("clean", "regular:css", "copy:bower"));
 gulp.task("Release", gulpSequence("clean", "min:js", "min:css", "copy:bower"));
+gulp.task("deploy", gulpSequence("clean", "min:js", "min:css", "copy:bower"));
 
