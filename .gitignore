@@ -4,6 +4,8 @@
 # Visual Studio 2015 cache/options directory
 .vs/
 
+appsettings.Production.json
+
 # Specific
 _git/
 /SSL/
@@ -224,4 +226,3 @@ $RECYCLE.BIN/
 *.msp
 # This folder is filled in by meand of Gulp copy from Bower_modules folder
 /src/PrintMood.UI/wwwroot/lib
-appsettings.Production.json 
