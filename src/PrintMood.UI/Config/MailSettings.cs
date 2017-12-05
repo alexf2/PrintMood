@@ -1,4 +1,6 @@
-﻿using System.ComponentModel;
+﻿using Newtonsoft.Json;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using WebApiHelpers.Contracts;
 
@@ -25,5 +27,9 @@ namespace PrintMood.Config
 
         public string SmtLogin { get; set; }
         public string SmtPwd { get; set; }
+
+        //The catch for comments
+        [JsonExtensionData]
+        public IDictionary<string, Newtonsoft.Json.Linq.JToken> ExtraStuff;
     }
 }

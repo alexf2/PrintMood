@@ -35,6 +35,7 @@ namespace WebApiHelpers.SharedServices
             using (var client = new SmtpClient())
             {
                 await client.ConnectAsync(_config.SmtpHost, _config.SmtpPort, SecureSocketOptions.None).ConfigureAwait(false);
+                //await client.AuthenticateAsync(_config.SmtLogin, _config.SmtPwd);
                 await client.SendAsync(msg).ConfigureAwait(false);
                 await client.DisconnectAsync(true).ConfigureAwait(false);
             }
