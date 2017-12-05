@@ -15,9 +15,9 @@ namespace PrintMood.Components
             _localizationOptions = localizationOptions;
         }
 
-        public async Task<IViewComponentResult> InvokeAsync ()
+        public Task<IViewComponentResult> InvokeAsync ()
         {            
-            return View(_localizationOptions.Value);
+            return Task.FromResult<IViewComponentResult>(View(_localizationOptions.Value));
         }
     }
 

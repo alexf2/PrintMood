@@ -2,12 +2,12 @@
 using System.Globalization;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
-#if NET451 || NET46
-    using System.Threading;
+#if NET451 || NET46 
+using System.Threading;
 #endif
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Routing;
-using Microsoft.Extensions.Globalization;
+using Microsoft.Extensions.Localization;// Globalization;
 using WebApiHelpers.Contracts;
 
 namespace WebApiHelpers

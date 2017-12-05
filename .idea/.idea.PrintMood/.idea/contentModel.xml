@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\fedorov\.Rider2017.2\system\resharper-host\local\Transient\ReSharperHost\v10\SolutionCaches\_PrintMood.174478720.00" t="ExcludeRecursive" />
+    <e p="I:\Work\PrintMood" t="IncludeFlat">
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="PrintMood.sln" t="IncludeFlat" />
+      <e p="Solution Items" t="Include" />
+      <e p="src" t="Include">
+        <e p="PrintMood.UI" t="IncludeRecursive">
+          <e p=".bowerrc" t="Include" />
+          <e p="ApiControllers" t="Include">
+            <e p="MailController.cs" t="Include" />
+            <e p="RootController.cs" t="Include" />
+          </e>
+          <e p="App.config" t="Include" />
+          <e p="appsettings.json" t="Include" />
+          <e p="appsettings.Production.json" t="Include" />
+          <e p="bin" t="ExcludeRecursive" />
+          <e p="bower.json" t="Include" />
+          <e p="Components" t="Include">
+            <e p="CultureSelector.cs" t="Include" />
+          </e>
+          <e p="Config" t="Include">
+            <e p="ConfigureLocales.cs" t="Include" />
+            <e p="LocalizationConfig.cs" t="Include" />
+            <e p="MailConfig.cs" t="Include" />
+            <e p="MailProfile.cs" t="Include" />
+            <e p="MailSettings.cs" t="Include" />
+            <e p="MainConfigSection.cs" t="Include" />
+            <e p="OptionsServiceCollectionExtensions.cs" t="Include" />
+            <e p="SmtpServiceFactory.cs" t="Include" />
+          </e>
+          <e p="Controllers" t="Include">
+            <e p="HomeController.cs" t="Include" />
+          </e>
+          <e p="CultureSetterUtil.cs" t="Include" />
+          <e p="gulpfile.js" t="Include" />
+          <e p="install_gulp.bat" t="Include" />
+          <e p="logs" t="Include">
+            <e p="empty.txt" t="Include" />
+            <e p="stdout_11716_201712423206.log" t="Include" />
+            <e p="stdout_11716_201712423234.log" t="Include" />
+            <e p="stdout_4352_2017124232026.log" t="Include" />
+            <e p="stdout_7516_201712423125.log" t="Include" />
+          </e>
+          <e p="Models" t="Include">
+            <e p="ViewModel.cs" t="Include" />
+          </e>
+          <e p="obj" t="ExcludeRecursive">
+            <e p="Debug" t="Include">
+              <e p="netcoreapp2.0" t="Include">
+                <e p="PrintMood.UI.AssemblyInfo.cs" t="Include" />
+              </e>
+            </e>
+          </e>
+          <e p="package.json" t="Include" />
+          <e p="PrintMood.UI.csproj" t="IncludeRecursive" />
+          <e p="Program.cs" t="Include" />
+          <e p="Properties" t="Include">
+            <e p="launchSettings.json" t="Include" />
+            <e p="PublishProfiles" t="Include">
+              <e p="LocalPM-publish.ps1" t="Include" />
+              <e p="LocalPM.pubxml" t="Include" />
+              <e p="LocalPub-publish.ps1" t="Include" />
+              <e p="LocalTest-publish.ps1" t="Include" />
+              <e p="publish-module.psm1" t="Include" />
+              <e p="Reg_Alexf2_Info.pubxml" t="Include" />
+            </e>
+          </e>
+          <e p="RequestDTO" t="Include">
+            <e p="MailData.cs" t="Include" />
+          </e>
+          <e p="Resources" t="Include">
+            <e p="RequestDTO" t="Include">
+              <e p="MailData.ru.resx" t="Include" />
+              <e p="MailData.sk.resx" t="Include" />
+            </e>
+            <e p="SharedResource.cs" t="Include" />
+            <e p="SharedResource.ru.resx" t="Include" />
+            <e p="SharedResource.sk.resx" t="Include" />
+            <e p="Views" t="Include">
+              <e p="Home" t="Include">
+                <e p="Index.ru.resx" t="Include" />
+                <e p="Index.sk.resx" t="Include" />
+              </e>
+              <e p="Shared" t="Include">
+                <e p="_Layout.ru.Designer.cs" t="Include" />
+                <e p="_Layout.ru.resx" t="Include" />
+                <e p="_Layout.sk.resx" t="Include" />
+                <e p="Error.ru.resx" t="Include" />
+                <e p="Error.sk.resx" t="Include" />
+              </e>
+            </e>
+          </e>
+          <e p="ResponseDTO" t="Include">
+            <e p="ServiceInfo.cs" t="Include" />
+          </e>
+          <e p="run.bat" t="Include" />
+          <e p="Startup.cs" t="Include" />
+          <e p="ValidateLocaleFilter.cs" t="Include" />
+          <e p="Views" t="Include">
+            <e p="_ViewImports.cshtml" t="Include" />
+            <e p="_ViewStart.cshtml" t="Include" />
+            <e p="Home" t="Include">
+              <e p="Index.cshtml" t="Include" />
+            </e>
+            <e p="Shared" t="Include">
+              <e p="_Layout.cshtml" t="Include" />
+              <e p="_SvgLib.cshtml" t="Include" />
+              <e p="Components" t="Include">
+                <e p="CultureSelector" t="Include">
+                  <e p="Default.cshtml" t="Include" />
+                </e>
+              </e>
+              <e p="Error.cshtml" t="Include" />
+            </e>
+          </e>
+          <e p="web.config" t="Include" />
+          <e p="wwwroot" t="Include">
+            <e p="css" t="Include">
+              <e p="aller_lt" t="Include">
+                <e p="aller_lt-webfont.eot" t="Include" />
+                <e p="aller_lt-webfont.svg" t="Include" />
+                <e p="aller_lt-webfont.ttf" t="Include" />
+                <e p="aller_lt-webfont.woff" t="Include" />
+              </e>
+              <e p="aller_rg" t="Include">
+                <e p="aller_rg-demo.html" t="Include" />
+                <e p="aller_rg-webfont.eot" t="Include" />
+                <e p="aller_rg-webfont.svg" t="Include" />
+                <e p="aller_rg-webfont.ttf" t="Include" />
+                <e p="aller_rg-webfont.woff" t="Include" />
+              </e>
+              <e p="anyoldicon" t="Include">
+                <e p="any-old-icon.dev.svg" t="Include" />
+                <e p="any-old-icon.eot" t="Include" />
+                <e p="any-old-icon.svg" t="Include" />
+                <e p="any-old-icon.ttf" t="Include" />
+                <e p="any-old-icon.woff" t="Include" />
+              </e>
+              <e p="cssbundle.min.css" t="Include" />
+              <e p="cssbundle.min.css.map" t="Include" />
+              <e p="pace.css" t="Include" />
+              <e p="site.css" t="Include" />
+            </e>
+            <e p="images" t="Include">
+              <e p="ajax-loader.gif" t="Include" />
+              <e p="arrow.png" t="Include" />
+              <e p="bg_direction_nav.png" t="Include" />
+              <e p="favicon.png" t="Include" />
+              <e p="hexagon_mask.png" t="Include" />
+              <e p="hexagon_mask_2.png" t="Include" />
+              <e p="passion.png" t="Include" />
+              <e p="passion_small.png" t="Include" />
+              <e p="print_mood.png" t="Include" />
+              <e p="print_mood_small.png" t="Include" />
+              <e p="shirts.jpg" t="Include" />
+              <e p="shirts.png" t="Include" />
+              <e p="shirts.psd" t="Include" />
+              <e p="slider" t="Include">
+                <e p="p1.jpg" t="Include" />
+                <e p="p2.jpg" t="Include" />
+                <e p="p3.jpg" t="Include" />
+                <e p="p4.jpg" t="Include" />
+                <e p="p5.jpg" t="Include" />
+              </e>
+              <e p="TradeMark.gif" t="Include" />
+              <e p="TradeMark.jpg" t="Include" />
+              <e p="trofimov.jpg" t="Include" />
+            </e>
+            <e p="js" t="Include">
+              <e p="jquery.validate.unobtrusive.js" t="Include" />
+              <e p="jquery.validate.unobtrusive.min.js" t="Include" />
+              <e p="site.js" t="Include" />
+              <e p="site.min.js" t="Include" />
+              <e p="site.min.js.map" t="Include" />
+            </e>
+            <e p="lib" t="Include">
+              <e p="bootstrap" t="Include">
+                <e p="dist" t="Include">
+                  <e p="css" t="Include">
+                    <e p="bootstrap-theme.css" t="Include" />
+                    <e p="bootstrap-theme.css.map" t="Include" />
+                    <e p="bootstrap-theme.min.css" t="Include" />
+                    <e p="bootstrap-theme.min.css.map" t="Include" />
+                    <e p="bootstrap.css" t="Include" />
+                    <e p="bootstrap.css.map" t="Include" />
+                    <e p="bootstrap.min.css" t="Include" />
+                    <e p="bootstrap.min.css.map" t="Include" />
+                  </e>
+                  <e p="fonts" t="Include">
+                    <e p="glyphicons-halflings-regular.eot" t="Include" />
+                    <e p="glyphicons-halflings-regular.svg" t="Include" />
+                    <e p="glyphicons-halflings-regular.ttf" t="Include" />
+                    <e p="glyphicons-halflings-regular.woff" t="Include" />
+                    <e p="glyphicons-halflings-regular.woff2" t="Include" />
+                  </e>
+                  <e p="js" t="Include">
+                    <e p="bootstrap.js" t="Include" />
+                    <e p="bootstrap.min.js" t="Include" />
+                  </e>
+                </e>
+              </e>
+              <e p="flexslider" t="Include">
+                <e p="flexslider.css" t="Include" />
+                <e p="fonts" t="Include">
+                  <e p="flexslider-icon.eot" t="Include" />
+                  <e p="flexslider-icon.svg" t="Include" />
+                  <e p="flexslider-icon.ttf" t="Include" />
+                  <e p="flexslider-icon.woff" t="Include" />
+                </e>
+                <e p="images" t="Include">
+                  <e p="bg_play_pause.png" t="Include" />
+                </e>
+                <e p="jquery.flexslider-min.js" t="Include" />
+                <e p="jquery.flexslider.js" t="Include" />
+              </e>
+              <e p="font-awesome" t="Include">
+                <e p="css" t="Include">
+                  <e p="font-awesome.css" t="Include" />
+                  <e p="font-awesome.css.map" t="Include" />
+                  <e p="font-awesome.min.css" t="Include" />
+                </e>
+                <e p="fonts" t="Include">
+                  <e p="fontawesome-webfont.eot" t="Include" />
+                  <e p="fontawesome-webfont.svg" t="Include" />
+                  <e p="fontawesome-webfont.ttf" t="Include" />
+                  <e p="fontawesome-webfont.woff" t="Include" />
+                  <e p="fontawesome-webfont.woff2" t="Include" />
+                  <e p="FontAwesome.otf" t="Include" />
+                </e>
+              </e>
+              <e p="gmaps" t="Include">
+                <e p="gmaps.js" t="Include" />
+                <e p="gmaps.min.js" t="Include" />
+                <e p="gmaps.min.js.map" t="Include" />
+              </e>
+              <e p="html5shiv" t="Include">
+                <e p="dist" t="Include">
+                  <e p="html5shiv-printshiv.js" t="Include" />
+                  <e p="html5shiv-printshiv.min.js" t="Include" />
+                  <e p="html5shiv.js" t="Include" />
+                  <e p="html5shiv.min.js" t="Include" />
+                </e>
+              </e>
+              <e p="jquery" t="Include">
+                <e p="dist" t="Include">
+                  <e p="jquery.js" t="Include" />
+                  <e p="jquery.min.js" t="Include" />
+                  <e p="jquery.min.map" t="Include" />
+                </e>
+              </e>
+              <e p="jquery-validation" t="Include">
+                <e p="dist" t="Include">
+                  <e p="jquery.validate.js" t="Include" />
+                  <e p="jquery.validate.min.js" t="Include" />
+                </e>
+              </e>
+              <e p="jquery.nicescroll" t="Include">
+                <e p="dist" t="Include">
+                  <e p="jquery.nicescroll.min.js" t="Include" />
+                  <e p="zoomico.png" t="Include" />
+                </e>
+              </e>
+              <e p="pace" t="Include">
+                <e p="pace.js" t="Include" />
+                <e p="pace.min.js" t="Include" />
+              </e>
+              <e p="respond" t="Include">
+                <e p="dest" t="Include">
+                  <e p="respond.min.js" t="Include" />
+                  <e p="respond.src.js" t="Include" />
+                </e>
+              </e>
+            </e>
+          </e>
+        </e>
+        <e p="WebApiHelpers" t="IncludeRecursive">
+          <e p="bin" t="ExcludeRecursive" />
+          <e p="Contracts" t="Include">
+            <e p="ICultureSetterUtil.cs" t="Include" />
+            <e p="IMailConfig.cs" t="Include" />
+            <e p="IRecaptchaValidationService.cs" t="Include" />
+            <e p="ISharedResource.cs" t="Include" />
+            <e p="ISmtpService.cs" t="Include" />
+            <e p="ISmtpServiceFactory.cs" t="Include" />
+          </e>
+          <e p="CultureSetterUtil.cs" t="Include" />
+          <e p="CultureSettingAuthFilter.cs" t="Include" />
+          <e p="CultureSettingResourceFilter.cs" t="Include" />
+          <e p="ErrorResponseDto.cs" t="Include" />
+          <e p="Guards.cs" t="Include" />
+          <e p="InvalidModelStateFilterAttribute.cs" t="Include" />
+          <e p="JsonDefaultFormatter.cs" t="Include" />
+          <e p="JsonIdentedFormatter.cs" t="Include" />
+          <e p="LanguageActionFilter.cs" t="Include" />
+          <e p="obj" t="ExcludeRecursive">
+            <e p="Debug" t="Include">
+              <e p="netstandard2.0" t="Include">
+                <e p="WebApiHelpers.AssemblyInfo.cs" t="Include" />
+              </e>
+            </e>
+          </e>
+          <e p="ObjectResultExecutorWithIndent.cs" t="Include" />
+          <e p="Properties" t="Include">
+            <e p="AssemblyInfo.cs" t="Include" />
+          </e>
+          <e p="ReCaptcha" t="Include">
+            <e p="RecaptchaOptions.cs" t="Include" />
+            <e p="RecaptchaServiceCollectionExtensions.cs" t="Include" />
+            <e p="RecaptchaValidationException.cs" t="Include" />
+            <e p="RecaptchaValidationResponse.cs" t="Include" />
+            <e p="RecaptchaValidationService.cs" t="Include" />
+            <e p="ValidateRecaptchaAttribute.cs" t="Include" />
+            <e p="ValidateRecaptchaFilter.cs" t="Include" />
+          </e>
+          <e p="RouteCultureProvider.cs" t="Include" />
+          <e p="SharedServices" t="Include">
+            <e p="SmtpService.cs" t="Include" />
+          </e>
+          <e p="VersionHelpers.cs" t="Include" />
+          <e p="WebApiErrorHandlingMiddleware.cs" t="Include" />
+          <e p="WebApiHelpers.csproj" t="IncludeRecursive" />
+          <e p="XSS" t="Include">
+            <e p="ValidateRequestXssAttribute.cs" t="Include" />
+            <e p="ValidateRequestXssFilter.cs" t="Include" />
+            <e p="XssServiceCollectionExtensions.cs" t="Include" />
+          </e>
+        </e>
+      </e>
+    </e>
+  </component>
+</project>

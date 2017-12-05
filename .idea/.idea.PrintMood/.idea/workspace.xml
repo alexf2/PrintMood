@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="8325cc15-82fb-4563-97e8-938615adcd9a" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/global.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/PrintMood.UI/PrintMood.UI.xproj" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/PrintMood.UI/project.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/PrintMood.UI/project.lock.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/WebApiHelpers/WebApiHelpers.xproj" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/WebApiHelpers/project.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/WebApiHelpers/project.lock.json" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PrintMood.sln" afterPath="$PROJECT_DIR$/PrintMood.sln" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PrintMood.UI/Components/CultureSelector.cs" afterPath="$PROJECT_DIR$/src/PrintMood.UI/Components/CultureSelector.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PrintMood.UI/Program.cs" afterPath="$PROJECT_DIR$/src/PrintMood.UI/Program.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PrintMood.UI/Resources/SharedResource.cs" afterPath="$PROJECT_DIR$/src/PrintMood.UI/Resources/SharedResource.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PrintMood.UI/Startup.cs" afterPath="$PROJECT_DIR$/src/PrintMood.UI/Startup.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PrintMood.UI/ValidateLocaleFilter.cs" afterPath="$PROJECT_DIR$/src/PrintMood.UI/ValidateLocaleFilter.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PrintMood.UI/appsettings.json" afterPath="$PROJECT_DIR$/src/PrintMood.UI/appsettings.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PrintMood.UI/run.bat" afterPath="$PROJECT_DIR$/src/PrintMood.UI/run.bat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/WebApiHelpers/CultureSetterUtil.cs" afterPath="$PROJECT_DIR$/src/WebApiHelpers/CultureSetterUtil.cs" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="Startup.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/PrintMood.UI/Startup.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <marker date="1512464778944" expanded="false" signature="6:743" ph="..." />
+                <marker date="1512464778944" expanded="true" signature="764:10858" ph="{...}" />
+                <marker date="1512464778944" expanded="true" signature="798:10856" ph="{...}" />
+                <marker date="1512464778944" expanded="true" signature="1083:1214" ph="{...}" />
+                <marker date="1512464778944" expanded="true" signature="1264:1891" ph="{...}" />
+                <marker date="1512464778944" expanded="true" signature="1314:1746" ph="{...}" />
+                <marker date="1512464778944" expanded="true" signature="1779:1881" ph="{...}" />
+                <marker date="1512464778944" expanded="true" signature="1959:2173" ph="/* This method gets called by the runtime. Use this method to add services to the container. ... */" />
+                <marker date="1512464778944" expanded="true" signature="2241:6047" ph="{...}" />
+                <marker date="1512464778944" expanded="true" signature="2279:5901" ph="{...}" />
+                <marker date="1512464778944" expanded="true" signature="2595:2777" ph="{...}" />
+                <marker date="1512464778944" expanded="true" signature="3009:4042" ph="/* services.Configure&lt;RequestLocalizationOptions&gt;( ... */" />
+                <marker date="1512464778944" expanded="true" signature="4213:4409" ph="/* is used to localize common strings ... */" />
+                <marker date="1512464778944" expanded="true" signature="4899:5557" ph="{...}" />
+                <marker date="1512464778944" expanded="true" signature="5282:5535" ph="/* add two localization filers to apply the locatlization for other filers and for views/controllers ... */" />
+                <marker date="1512464778944" expanded="true" signature="5934:6037" ph="{...}" />
+                <marker date="1512464778944" expanded="true" signature="6265:9511" ph="{...}" />
+                <marker date="1512464778944" expanded="true" signature="6459:6720" ph="{...}" />
+                <marker date="1512464778944" expanded="true" signature="6737:6972" ph="{...}" />
+                <marker date="1512464778944" expanded="true" signature="7325:7420" ph="{...}" />
+                <marker date="1512464778944" expanded="true" signature="7542:8373" ph="{...}" />
+                <marker date="1512464778944" expanded="true" signature="8475:9487" ph="{...}" />
+                <marker date="1512464778944" expanded="true" signature="8620:9471" ph="{...}" />
+                <marker date="1512464778944" expanded="true" signature="9521:9593" ph="/// User for startup errors ... " />
+                <marker date="1512464778944" expanded="true" signature="9660:10850" ph="{...}" />
+                <marker date="1512464778944" expanded="true" signature="9732:10825" ph="{...}" />
+                <marker date="1512464778944" expanded="true" signature="10298:10807" ph="{...}" />
+                <marker date="1512464778944" expanded="true" signature="10356:10461" ph="{...}" />
+                <marker date="1512464778944" expanded="true" signature="10511:10753" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Program.cs" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/PrintMood.UI/Program.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+              <folding>
+                <marker date="1512468467613" expanded="true" signature="6:63" ph="..." />
+                <marker date="1512468467613" expanded="true" signature="84:677" ph="{...}" />
+                <marker date="1512468467613" expanded="true" signature="111:675" ph="{...}" />
+                <marker date="1512468467613" expanded="true" signature="164:493" ph="{...}" />
+                <marker date="1512468467613" expanded="true" signature="187:444" ph="/* var host = new WebHostBuilder() ... */" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HostingEnvironmentExtensions.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/787731CC-AF9B-4845-B917-241A8A2C9DD5/3a/60affa22/HostingEnvironmentExtensions.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="20" column="23" lean-forward="false" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>isde</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/787731CC-AF9B-4845-B917-241A8A2C9DD5/3a/60affa22/HostingEnvironmentExtensions.cs" root0="SKIP_INSPECTION" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/787731CC-AF9B-4845-B917-241A8A2C9DD5/8f/0490b7dc/EnvironmentName.cs" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/PrintMood.UI/Program.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/PrintMood.UI/appsettings.json" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/PrintMood.UI/Startup.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9ADBAC8C-5533-4CBC-A0D8-B695AF96A8F6/ea/c8d4373a/ConfigurationBuilder.cs" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/PrintMood.UI/Startup.cs" />
+        <option value="$PROJECT_DIR$/src/PrintMood.UI/Program.cs" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodeModulesDirectoryManager">
+    <handled-path value="$PROJECT_DIR$/src/PrintMood.UI/node_modules" />
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="291" />
+    <option name="y" value="100" />
+    <option name="width" value="1400" />
+    <option name="height" value="1000" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="SolutionExplorer" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="SolutionExplorer">
+        <subPane>
+          <expand>
+            <path>
+              <item name="" type="13324e5d:SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
+              <item name="PrintMood (2 projects)" type="977d5f41:SolutionExplorerNodeRider" />
+            </path>
+            <path>
+              <item name="" type="13324e5d:SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
+              <item name="PrintMood (2 projects)" type="977d5f41:SolutionExplorerNodeRider" />
+              <item name="src" type="977d5f41:SolutionExplorerNodeRider" />
+            </path>
+            <path>
+              <item name="" type="13324e5d:SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
+              <item name="PrintMood (2 projects)" type="977d5f41:SolutionExplorerNodeRider" />
+              <item name="src" type="977d5f41:SolutionExplorerNodeRider" />
+              <item name="PrintMood.UI" type="977d5f41:SolutionExplorerNodeRider" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+        <option name="show-file-system" value="false" />
+        <option name="show-all-items" value="false" />
+      </pane>
+      <pane id="Scratches" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="SearchEverywhereHistoryKey" value="main&#9;null&#9;null" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected=".NET Project.Default">
+    <configuration name="Default" type="DotNetProject" factoryName=".NET Project">
+      <option name="EXE_PATH" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <envs />
+      <option name="USE_MONO" value="0" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="PROJECT_PATH" value="" />
+      <option name="PROJECT_OUTPUT_TRACKING" value="1" />
+      <option name="PROJECT_KIND" value="None" />
+      <option name="PROJECT_TFM" value="" />
+      <browser url="http://localhost:5000" />
+    </configuration>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8325cc15-82fb-4563-97e8-938615adcd9a" name="Default" comment="" />
+      <created>1512430866753</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1512430866753</updated>
+      <workItem from="1512430869426" duration="1594000" />
+      <workItem from="1512466714136" duration="1138000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="2732000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="54" y="-8" width="1874" height="1216" extended-state="6" />
+    <layout>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Errors In Solution" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31216362" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Unit Tests" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="NuGet" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32910246" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18622175" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23209429" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/PrintMood.UI/Startup.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1512464778944" expanded="false" signature="6:743" ph="..." />
+            <marker date="1512464778944" expanded="true" signature="764:10858" ph="{...}" />
+            <marker date="1512464778944" expanded="true" signature="798:10856" ph="{...}" />
+            <marker date="1512464778944" expanded="true" signature="1083:1214" ph="{...}" />
+            <marker date="1512464778944" expanded="true" signature="1264:1891" ph="{...}" />
+            <marker date="1512464778944" expanded="true" signature="1314:1746" ph="{...}" />
+            <marker date="1512464778944" expanded="true" signature="1779:1881" ph="{...}" />
+            <marker date="1512464778944" expanded="true" signature="1959:2173" ph="/* This method gets called by the runtime. Use this method to add services to the container. ... */" />
+            <marker date="1512464778944" expanded="true" signature="2241:6047" ph="{...}" />
+            <marker date="1512464778944" expanded="true" signature="2279:5901" ph="{...}" />
+            <marker date="1512464778944" expanded="true" signature="2595:2777" ph="{...}" />
+            <marker date="1512464778944" expanded="true" signature="3009:4042" ph="/* services.Configure&lt;RequestLocalizationOptions&gt;( ... */" />
+            <marker date="1512464778944" expanded="true" signature="4213:4409" ph="/* is used to localize common strings ... */" />
+            <marker date="1512464778944" expanded="true" signature="4899:5557" ph="{...}" />
+            <marker date="1512464778944" expanded="true" signature="5282:5535" ph="/* add two localization filers to apply the locatlization for other filers and for views/controllers ... */" />
+            <marker date="1512464778944" expanded="true" signature="5934:6037" ph="{...}" />
+            <marker date="1512464778944" expanded="true" signature="6265:9511" ph="{...}" />
+            <marker date="1512464778944" expanded="true" signature="6459:6720" ph="{...}" />
+            <marker date="1512464778944" expanded="true" signature="6737:6972" ph="{...}" />
+            <marker date="1512464778944" expanded="true" signature="7325:7420" ph="{...}" />
+            <marker date="1512464778944" expanded="true" signature="7542:8373" ph="{...}" />
+            <marker date="1512464778944" expanded="true" signature="8475:9487" ph="{...}" />
+            <marker date="1512464778944" expanded="true" signature="8620:9471" ph="{...}" />
+            <marker date="1512464778944" expanded="true" signature="9521:9593" ph="/// User for startup errors ... " />
+            <marker date="1512464778944" expanded="true" signature="9660:10850" ph="{...}" />
+            <marker date="1512464778944" expanded="true" signature="9732:10825" ph="{...}" />
+            <marker date="1512464778944" expanded="true" signature="10298:10807" ph="{...}" />
+            <marker date="1512464778944" expanded="true" signature="10356:10461" ph="{...}" />
+            <marker date="1512464778944" expanded="true" signature="10511:10753" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/787731CC-AF9B-4845-B917-241A8A2C9DD5/3a/60affa22/HostingEnvironmentExtensions.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="23" lean-forward="false" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PrintMood.UI/appsettings.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1512425645398" expanded="true" signature="15:157" ph="{...}" />
+            <marker date="1512425645398" expanded="true" signature="60:153" ph="{...}" />
+            <marker date="1512425645398" expanded="true" signature="211:530" ph="{...}" />
+            <marker date="1512425645398" expanded="true" signature="328:522" ph="{...}" />
+            <marker date="1512425645398" expanded="true" signature="594:698" ph="{...}" />
+            <marker date="1512425645398" expanded="true" signature="709:810" ph="{...}" />
+            <marker date="1512425645398" expanded="true" signature="821:924" ph="{...}" />
+            <marker date="1512425645398" expanded="true" signature="935:1034" ph="{...}" />
+            <marker date="1512425645398" expanded="true" signature="1045:1144" ph="{...}" />
+            <marker date="1512425645398" expanded="true" signature="1155:1256" ph="{...}" />
+            <marker date="1512425645398" expanded="true" signature="1291:1344" ph="{...}" />
+            <marker date="1512425645398" expanded="true" signature="1370:1493" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9ADBAC8C-5533-4CBC-A0D8-B695AF96A8F6/ea/c8d4373a/ConfigurationBuilder.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="58" lean-forward="false" selection-start-line="19" selection-start-column="58" selection-end-line="19" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/787731CC-AF9B-4845-B917-241A8A2C9DD5/8f/0490b7dc/EnvironmentName.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="34" lean-forward="false" selection-start-line="11" selection-start-column="34" selection-end-line="11" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/787731CC-AF9B-4845-B917-241A8A2C9DD5/3a/60affa22/HostingEnvironmentExtensions.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="20" column="23" lean-forward="false" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PrintMood.UI/Startup.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1512464778944" expanded="false" signature="6:743" ph="..." />
+            <marker date="1512464778944" expanded="true" signature="764:10858" ph="{...}" />
+            <marker date="1512464778944" expanded="true" signature="798:10856" ph="{...}" />
+            <marker date="1512464778944" expanded="true" signature="1083:1214" ph="{...}" />
+            <marker date="1512464778944" expanded="true" signature="1264:1891" ph="{...}" />
+            <marker date="1512464778944" expanded="true" signature="1314:1746" ph="{...}" />
+            <marker date="1512464778944" expanded="true" signature="1779:1881" ph="{...}" />
+            <marker date="1512464778944" expanded="true" signature="1959:2173" ph="/* This method gets called by the runtime. Use this method to add services to the container. ... */" />
+            <marker date="1512464778944" expanded="true" signature="2241:6047" ph="{...}" />
+            <marker date="1512464778944" expanded="true" signature="2279:5901" ph="{...}" />
+            <marker date="1512464778944" expanded="true" signature="2595:2777" ph="{...}" />
+            <marker date="1512464778944" expanded="true" signature="3009:4042" ph="/* services.Configure&lt;RequestLocalizationOptions&gt;( ... */" />
+            <marker date="1512464778944" expanded="true" signature="4213:4409" ph="/* is used to localize common strings ... */" />
+            <marker date="1512464778944" expanded="true" signature="4899:5557" ph="{...}" />
+            <marker date="1512464778944" expanded="true" signature="5282:5535" ph="/* add two localization filers to apply the locatlization for other filers and for views/controllers ... */" />
+            <marker date="1512464778944" expanded="true" signature="5934:6037" ph="{...}" />
+            <marker date="1512464778944" expanded="true" signature="6265:9511" ph="{...}" />
+            <marker date="1512464778944" expanded="true" signature="6459:6720" ph="{...}" />
+            <marker date="1512464778944" expanded="true" signature="6737:6972" ph="{...}" />
+            <marker date="1512464778944" expanded="true" signature="7325:7420" ph="{...}" />
+            <marker date="1512464778944" expanded="true" signature="7542:8373" ph="{...}" />
+            <marker date="1512464778944" expanded="true" signature="8475:9487" ph="{...}" />
+            <marker date="1512464778944" expanded="true" signature="8620:9471" ph="{...}" />
+            <marker date="1512464778944" expanded="true" signature="9521:9593" ph="/// User for startup errors ... " />
+            <marker date="1512464778944" expanded="true" signature="9660:10850" ph="{...}" />
+            <marker date="1512464778944" expanded="true" signature="9732:10825" ph="{...}" />
+            <marker date="1512464778944" expanded="true" signature="10298:10807" ph="{...}" />
+            <marker date="1512464778944" expanded="true" signature="10356:10461" ph="{...}" />
+            <marker date="1512464778944" expanded="true" signature="10511:10753" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PrintMood.UI/Program.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding>
+            <marker date="1512468467613" expanded="true" signature="6:63" ph="..." />
+            <marker date="1512468467613" expanded="true" signature="84:677" ph="{...}" />
+            <marker date="1512468467613" expanded="true" signature="111:675" ph="{...}" />
+            <marker date="1512468467613" expanded="true" signature="164:493" ph="{...}" />
+            <marker date="1512468467613" expanded="true" signature="187:444" ph="/* var host = new WebHostBuilder() ... */" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

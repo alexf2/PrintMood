@@ -23,7 +23,8 @@ namespace PrintMood
             _env = env;
         }
 
-        public IStringLocalizer Localizer => _stringFac.Create(nameof(SharedResource), null);
+        public IStringLocalizer Localizer => _stringFac.Create(nameof(SharedResource), _env.ApplicationName);
+        //public IStringLocalizer Localizer => _stringFac.Create(typeof(SharedResource).GetType());
 
         public IHtmlLocalizer HtmlLocalizer => _htmlFac.Create(nameof(SharedResource), _env.ApplicationName);
     }

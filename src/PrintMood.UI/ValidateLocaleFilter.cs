@@ -28,7 +28,7 @@ namespace PrintMood
                     return;
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {                
                 Return(context, 400, "Argument 'culture' is not specified.");
                 return;

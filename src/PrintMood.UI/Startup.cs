@@ -28,6 +28,8 @@ namespace PrintMood
         const string StartKey = "Startup Error";
         const string ConfigKey = "Configuration Error";
 
+        IHostingEnvironment _env;
+
         readonly Dictionary<string, List<ExceptionDispatchInfo>> _errors = new Dictionary<string, List<ExceptionDispatchInfo>>()
         {
             {StartKey, new List<ExceptionDispatchInfo>() },
@@ -36,6 +38,7 @@ namespace PrintMood
 
         public Startup(IHostingEnvironment env)
         {
+            _env = env;
             try
             {
                 var builder = new ConfigurationBuilder()
@@ -56,7 +59,7 @@ namespace PrintMood
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit http://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices (IServiceCollection services)
-        {
+        {            
             try
             {                
                 services
@@ -115,7 +118,7 @@ namespace PrintMood
                         //opt.Filters.Add(new CultureSettingResourceFilter());
                     })
                     .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix, opt => opt.ResourcesPath = "Resources")
-                    .AddDataAnnotationsLocalization(opt => opt.DataAnnotationLocalizerProvider = (t, f) => f.Create(string.Join(".", t.Namespace.Split('.').Skip(1)) + "." + t.Name, null));                
+                    .AddDataAnnotationsLocalization(opt => opt.DataAnnotationLocalizerProvider = (t, f) => f.Create(string.Join(".", t.Namespace.Split('.').Skip(1)) + "." + t.Name, _env.ApplicationName));
             }
             catch (Exception ex)
             {
@@ -126,8 +129,8 @@ namespace PrintMood
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
-            app.UseRequestLocalization(app.ApplicationServices.GetService<IOptions<RequestLocalizationOptions>>().Value);
-
+            app.UseRequestLocalization(app.ApplicationServices.GetService<IOptions<RequestLocalizationOptions>>().Value);            
+            
             if (env.IsDevelopment())
             {
                 loggerFactory.AddConsole(Configuration.GetSection("Logging"))
@@ -146,8 +149,8 @@ namespace PrintMood
             }
             app.UseStatusCodePagesWithReExecute("/Home/Error");
 
-            var logger = loggerFactory.CreateLogger<Startup>();
-
+            var logger = loggerFactory.CreateLogger<Startup>();            
+            
             logger.LogWarning($"The environment is dev: {env.IsDevelopment()}");
 
             logger.LogInformation("Is about running");
