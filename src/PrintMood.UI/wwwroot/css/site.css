@@ -1,16 +1,4 @@
 ﻿/* ==========================================================
-  Hiding against Pace signals, until all the content have been loaded
-============================================================= */
-.pace-running > :not(.pace) {
-    opacity: 0;
-}
-
-.pace-done > :not(.pace) {
-    opacity: 1;
-    transition: opacity .5s ease;
-}
-
-/* ==========================================================
                        Global Styles
 ============================================================= */
 @font-face {

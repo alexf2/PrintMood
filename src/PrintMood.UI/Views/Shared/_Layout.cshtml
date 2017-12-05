@@ -21,6 +21,30 @@
     <title>@ViewData["Title"] - (-: Print Mood :-)</title>
     <link rel="shortcut icon" href="~/images/favicon.png">
 
+    <style media="screen" type="text/css">
+        body > :not(.pace) {
+            opacity: 0;
+        } 
+        body.pace-running > :not(.pace) {
+            opacity: 0;
+        }
+        body.pace-done > :not(.pace) {
+            opacity: 1;
+            transform: opacity 0.5s ease;
+        }
+    </style>
+
+    <!-- Pace should be loaded eraly to hide other content -->
+    <environment names="Development">
+        <script data-pace-options='{ "ajax": false }' src="~/lib/pace/pace.js"></script>
+    </environment>
+    <environment names="Staging,Production">
+        <script data-pace-options='{ "ajax": false }' src="//cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js"
+                asp-fallback-src="~/lib/pace/pace.min.js"
+                asp-fallback-test="window.Pace">
+        </script>
+    </environment>
+
     <environment names="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
 
@@ -28,12 +52,12 @@
             <link rel="stylesheet" href="@Url.Content("~/lib/ie_8.css")"/>
 
             <script src="@Url.Content("~/lib/respond/dest/respond.src.js")"></script>
-            <script src="@Url.Content("~/lib/html5shiv/dist/html5shiv.js")"></script> 
-        <![endif]-->        
+            <script src="@Url.Content("~/lib/html5shiv/dist/html5shiv.js")"></script>
+        <![endif]-->
 
-        <link rel="stylesheet" href="~/lib/font-awesome/css/font-awesome.css" />        
+        <link rel="stylesheet" href="~/lib/font-awesome/css/font-awesome.css" />
         <link rel="stylesheet" href="~/lib/flexslider/flexslider.css" />
-        
+
         <link rel="stylesheet" href="~/css/cssbundle.css" />
     </environment>
     <environment names="Staging,Production">
@@ -47,13 +71,13 @@
             <script src="//ajax.aspnetcdn.com/ajax/respond/1.4.2/respond.min.js"
                     asp-fallback-src="@Url.Content("~/lib/respond/dest/respond.min.js")"
                     asp-fallback-test="window.respond">
-            
+
             </script>
 
             <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"
                     asp-fallback-src="@Url.Content("~/lib/html5shiv/dist/html5shiv.min.js")"
                     asp-fallback-test="window.html5">
-            
+
             </script>
         <![endif]-->
 
@@ -75,12 +99,12 @@
     @await Html.PartialAsync("_SvgLib")
     <!-- Fixed navbar -->
     <div class="navbar navbar-default navbar-fixed-top ha-header-small" id="ha-header">
-        <div class="container">            
+        <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
                     <a class="navbar-brand logo" href="~/">PrintMood</a>
                 </div>
-                
+
                 <div class="navbar-collapse navbar-right ">
                     @await Component.InvokeAsync("CultureSelector")
                 </div>
@@ -94,7 +118,7 @@
                         <li><a href="#contact" title='@LocShared["Contact Us"]'>@LocShared["Contacts"]</a></li>
                     </ul>
                 </div>
-                <!--/.nav-collapse -->                            
+                <!--/.nav-collapse -->
         </div>
     </div>
     <!-- End Fixed navbar -->
@@ -127,13 +151,12 @@
     <environment names="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>
         <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
-        <script src="~/lib/pace/pace.js"></script>
         <script src="~/lib/jquery.nicescroll/dist/jquery.nicescroll.min.js"></script>
         <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
         <script src="~/js/jquery.validate.unobtrusive.js"></script>
 
         <script src="~/lib/flexslider/jquery.flexslider.js"></script>
-        <script src="~/js/site.js" asp-append-version="true"></script>        
+        <script src="~/js/site.js" asp-append-version="true"></script>
     </environment>
 
     <environment names="Staging,Production">
@@ -145,13 +168,6 @@
         <script src="//ajax.aspnetcdn.com/ajax/bootstrap/3.3.6/bootstrap.min.js"
                 asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
                 asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal">
-
-        </script>
-
-        <script src="//cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js"
-                asp-fallback-src="~/lib/pace/pace.min.js"
-                asp-fallback-test="window.Pace">
-
         </script>
 
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.6.8/jquery.nicescroll.min.js"
@@ -162,8 +178,6 @@
         <script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.min.js"
                 asp-fallback-src="~/lib/jquery-validation/dist/jquery.validate.min.js"
                 asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.validate">
-
-
         </script>
 
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.6/jquery.validate.unobtrusive.min.js"
@@ -177,7 +191,7 @@
                 asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.flexslider">
         </script>
 
-        <script src="~/js/site.min.js" asp-append-version="true"></script>        
+        <script src="~/js/site.min.js" asp-append-version="true"></script>
     </environment>
 
     @RenderSection("scripts", required: false)

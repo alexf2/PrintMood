@@ -26,7 +26,7 @@
         animClassUp = $vp.data('animateUp'),
         scrollPos = $(document).scrollTop();
         
-    Pace.on("done", function(){
+    Pace.once("done", function(){
         $('#ha-header').attr('class', 'ha-header ha-header-large');
     });    
 
