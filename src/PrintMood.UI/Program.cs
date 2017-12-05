@@ -8,6 +8,7 @@ namespace PrintMood
     {
         public static void Main(string[] args)
         {
+            //Core 1.0 startup
             /*var host = new WebHostBuilder()
                 .UseKestrel()
                 .UseContentRoot(Directory.GetCurrentDirectory())

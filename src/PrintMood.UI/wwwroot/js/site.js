@@ -1,4 +1,23 @@
-﻿/***Header Effect**/
+﻿/*** Pace debug validation ***/
+/*(function () {
+    var count = 0;
+
+    var f = function () {
+        console.log($('.pace-running').length);
+        console.log($('.pace').length);
+        console.log($('.pace-done').length);
+        console.log('---' + count);
+
+        if (++count < 10) {
+            console.log('next->');
+            setTimeout(f, 400);
+        }
+    }
+    setTimeout(f, 400);
+})();*/
+
+
+/***Header Effect**/
 (function() {
 
     var $head = $('#ha-header'),
